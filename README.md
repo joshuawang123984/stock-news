@@ -9,7 +9,7 @@ Doing this entirely with a local/open-source LLM so it can run fully offline ann
 ## planned pipeline
 
 1. **Ingestion** - pull news articles for a configured list of tickers
-   from a news API and sentiment endpoint(probably NewsAPI or Alpha Vantage's News)
+   from a news API and sentiment endpoint (Matketaux)
 2. **Embedding + storage** - embed articles with `sentence-transformers`,
    store them in Qdrant along with metadata (ticker, timestamp, source)
 3. **Hybrid search** - combine dense vector search with keyword/BM25
