@@ -1,10 +1,6 @@
-from sentence_transformers import SentenceTransformer
-from qdrant_client import QdrantClient
 from qdrant_client.models import VectorParams, Distance, PointStruct
+from constants import model, client, COLLECTION_NAME
 
-model = SentenceTransformer("all-MiniLM-L6-v2")  
-client = QdrantClient(host="localhost", port=6333)
-COLLECTION_NAME = "stock_news"
 
 def embed(articles: list[dict]) -> list[PointStruct]:
     """Embed each article's title+description into a vector representation.
