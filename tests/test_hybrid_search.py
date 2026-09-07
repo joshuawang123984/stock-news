@@ -6,9 +6,7 @@ from unittest.mock import patch, MagicMock
 
 from hybrid_search import sparse_search, reciprocal_rank_fusion, dense_search
 
-
-# --- reciprocal_rank_fusion ---
-# Pure logic, no dependencies — test directly.
+# --- rrrf ---
 
 def test_rrf_favors_articles_ranked_highly_in_both_lists():
     """An article near the top of both lists should outrank one that's
@@ -22,8 +20,7 @@ def test_rrf_favors_articles_ranked_highly_in_both_lists():
 
     fused = reciprocal_rank_fusion(dense_results, sparse_results)
 
-    # 'a' appears in both lists (ranked well in each), so it should win
-    # even though 'c' was ranked #1 in the sparse list alone.
+    # 'a' appears in both lists, so it should win
     assert fused[0]["uuid"] == "a"
 
 
@@ -45,18 +42,16 @@ def test_rrf_handles_empty_inputs():
 
 
 # --- sparse_search ---
-# Uses real BM25 computation — deterministic, no network calls, no
-# reason to mock this.
 
 def test_sparse_search_ranks_keyword_match_higher():
     """An article whose title/description actually contains the query
     terms should rank above one that doesn't."""
     articles = [
-        {"uuid": "1", "title": "Apple reports record iPhone sales", "description": "Strong quarter."},
+        {"uuid": "1", "title": "i am writing down gibberish", "description": "bologne."},
         {"uuid": "2", "title": "Local weather update", "description": "Rain expected tomorrow."},
     ]
 
-    results = sparse_search("iPhone sales", articles, top_k=2)
+    results = sparse_search("gibberish", articles, top_k=2)
 
     assert results[0]["uuid"] == "1"
 
@@ -74,8 +69,6 @@ def test_sparse_search_respects_top_k():
 
 
 # --- dense_search ---
-# Talks to a real model and a real Qdrant instance — mock both so this
-# test doesn't depend on Qdrant being up or actually loading model weights.
 
 @patch("hybrid_search.client")
 @patch("hybrid_search.model")
