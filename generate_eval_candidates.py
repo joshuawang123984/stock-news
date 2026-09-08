@@ -17,14 +17,15 @@ CROSS_TICKER_QUERIES = [
     "Which of my holdings do analysts say are bearish?",
 ]
 
-def build_query_list() -> list[str]:
+def build_query_list() -> list[tuple[str, str | None]]:
     """Expands GENERAL_QUERIES across each ticker in MY_TICKERS, 
     then appends the cross-ticker queries"""
     queries = []
     for ticker in MY_TICKERS:
         for template in GENERAL_QUERIES:
-            queries.append(template.format(ticker=ticker))
-    queries.extend(CROSS_TICKER_QUERIES)
+            queries.append((template.format(ticker=ticker), ticker))
+    for query in CROSS_TICKER_QUERIES:
+        queries.append((query, None))
     return queries
  
  
@@ -38,13 +39,10 @@ def generate_candidates():
     print("Embedding and storing articles in Qdrant...")
     embed_and_store(articles)
     print("Done.\n")
- 
-    queries = build_query_list()
-    print(f"Running {len(queries)} queries through hybrid_search...\n")
- 
+  
     candidates = []
-    for query in queries:
-        results = hybrid_search(query, articles, top_k=5)
+    for query, ticker in build_query_list():
+        results = hybrid_search(query, articles, ticker=ticker, top_k=5)
  
         entry = {
             "query": query,
@@ -52,7 +50,7 @@ def generate_candidates():
                 {"uuid": a["uuid"], "title": a["title"], "ticker": a["ticker"]}
                 for a in results
             ],
-            "relevant_uuids": [],  # <-- fill in by hand
+            "relevant_uuids": [],  #fill in by hand in json
         }
         if not results:
             entry["note"] = "no candidate articles returned — confirm this is correct before treating as resolved"

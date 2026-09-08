@@ -66,6 +66,32 @@ def test_sparse_search_respects_top_k():
 
     assert len(results) == 2
 
+def test_sparse_search_filters_by_ticker_when_given():
+    """Articles from other tickers should be excluded entirely when a
+    ticker filter is applied, even if they'd otherwise score well."""
+    articles = [
+        {"uuid": "1", "title": "SRPT reports earnings", "description": "Strong quarter.", "ticker": "SRPT"},
+        {"uuid": "2", "title": "CAN reports earnings", "description": "Strong quarter.", "ticker": "CAN"},
+    ]
+
+    results = sparse_search("earnings", articles, ticker="SRPT", top_k=5)
+
+    result_uuids = {a["uuid"] for a in results}
+    assert result_uuids == {"1"}
+
+
+def test_sparse_search_searches_everything_when_ticker_is_none():
+    """With no ticker filter, articles from any ticker are eligible."""
+    articles = [
+        {"uuid": "1", "title": "SRPT reports earnings", "description": "Strong quarter.", "ticker": "SRPT"},
+        {"uuid": "2", "title": "CAN reports earnings", "description": "Strong quarter.", "ticker": "CAN"},
+    ]
+
+    results = sparse_search("earnings", articles, top_k=5)
+
+    result_uuids = {a["uuid"] for a in results}
+    assert result_uuids == {"1", "2"}
+
 
 # --- dense_search ---
 
@@ -86,3 +112,21 @@ def test_dense_search_returns_payloads_from_qdrant_results(mock_model, mock_clie
 
     assert results == [{"uuid": "abc", "title": "Test article"}]
     mock_client.query_points.assert_called_once()
+
+@patch("hybrid_search.client")
+@patch("hybrid_search.model")
+def test_dense_search_applies_ticker_filter_when_given(mock_model, mock_client):
+    """When a ticker is passed, the Qdrant call should include a filter
+    restricting results to said ticker."""
+    mock_model.encode.return_value.tolist.return_value = [0.1, 0.2, 0.3]
+
+    mock_response = MagicMock()
+    mock_response.points = []
+    mock_client.query_points.return_value = mock_response
+
+    dense_search("some query", ticker="META", top_k=5)
+
+    # Check that query_points was called with a query_filter argument,
+    # not left as None
+    call_kwargs = mock_client.query_points.call_args.kwargs
+    assert call_kwargs["query_filter"] is not None

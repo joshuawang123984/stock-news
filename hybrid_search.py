@@ -1,27 +1,40 @@
 from rank_bm25 import BM25Okapi
+from qdrant_client.models import Filter, FieldCondition, MatchValue
 from constants import model, client, COLLECTION_NAME
 
-def dense_search(query: str, top_k: int = 20) -> list[dict]:
+def dense_search(query: str, ticker: str | None = None, top_k: int = 20) -> list[dict]:
     """Vector similarity search in Qdrant. Returns similar articles."""
     query_vector = model.encode(query).tolist()
+
+    query_filter = None
+    if ticker:
+        query_filter = Filter(
+            must=[FieldCondition(key="ticker", match=MatchValue(value=ticker))]
+        )
+        
     results = client.query_points(
         collection_name=COLLECTION_NAME,
         query=query_vector,
+        query_filter=query_filter,
         limit=top_k,
     )
     return [point.payload for point in results.points]
 
 
-def sparse_search(query: str, articles: list[dict], top_k: int = 20) -> list[dict]:
+def sparse_search(query: str, articles: list[dict], ticker: str | None = None, top_k: int = 20) -> list[dict]:
     """BM25 keyword search against a corpus of articles already in memory."""
 
-    tokenized_corpus = [a["title"].split() + a["description"].split() for a in articles]
+    corpus = [a for a in articles if ticker is None or a["ticker"] == ticker]
+    if not corpus:
+        return []
+
+    tokenized_corpus = [a["title"].split() + a["description"].split() for a in corpus]
     bm25 = BM25Okapi(tokenized_corpus)
 
     tokenized_query = query.split()
     scores = bm25.get_scores(tokenized_query)
 
-    ranked = sorted(zip(articles, scores), key=lambda x: x[1], reverse=True)
+    ranked = sorted(zip(corpus, scores), key=lambda x: x[1], reverse=True)
     return [article for article, score in ranked[:top_k]]
 
 
@@ -42,9 +55,9 @@ def reciprocal_rank_fusion(dense_results: list[dict], sparse_results: list[dict]
     return [all_articles[uuid] for uuid in ranked_uuids]
 
 
-def hybrid_search(query: str, articles: list[dict], top_k: int = 10) -> list[dict]:
+def hybrid_search(query: str, articles: list[dict], ticker: str | None = None, top_k: int = 10) -> list[dict]:
     """calls dense + sparse search then fuses."""
-    dense_results = dense_search(query)
-    sparse_results = sparse_search(query, articles)
+    dense_results = dense_search(query, ticker=ticker)
+    sparse_results = sparse_search(query, articles, ticker=ticker)
     fused = reciprocal_rank_fusion(dense_results, sparse_results)
     return fused[:top_k]
