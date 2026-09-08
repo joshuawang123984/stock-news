@@ -1,5 +1,4 @@
-"""Tests for hybrid search: dense_search, sparse_search, and
-reciprocal_rank_fusion."""
+"""Tests for hybrid_search.py"""
 
 import pytest
 from unittest.mock import patch, MagicMock
