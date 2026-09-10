@@ -1,5 +1,6 @@
 from rank_bm25 import BM25Okapi
 from qdrant_client.models import Filter, FieldCondition, MatchValue
+from reranking import rerank
 from constants import model, client, COLLECTION_NAME
 
 def dense_search(query: str, ticker: str | None = None, top_k: int = 20) -> list[dict]:
@@ -55,9 +56,12 @@ def reciprocal_rank_fusion(dense_results: list[dict], sparse_results: list[dict]
     return [all_articles[uuid] for uuid in ranked_uuids]
 
 
-def hybrid_search(query: str, articles: list[dict], ticker: str | None = None, top_k: int = 10) -> list[dict]:
+def hybrid_search(query: str, articles: list[dict], ticker: str | None = None, top_k: int = 10, use_reranking: bool = False) -> list[dict]:
     """calls dense + sparse search then fuses."""
     dense_results = dense_search(query, ticker=ticker)
     sparse_results = sparse_search(query, articles, ticker=ticker)
     fused = reciprocal_rank_fusion(dense_results, sparse_results)
+
+    if (use_reranking):
+        return rerank(query, fused[:20], top_k=top_k)
     return fused[:top_k]
