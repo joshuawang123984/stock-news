@@ -1,8 +1,13 @@
 import json
+from datetime import date
 from ingestion import ingestion
 from embed_and_store import embed_and_store
 from hybrid_search import hybrid_search
 
+OUTPUT_PATH = "eval_candidates.json"
+
+NOTES = "low-news-volume biotechs with meta as an outlier"
+ 
 MY_TICKERS = [
     "SRPT", "CAN", "META", "MGNX", "NKTX", "PLX", "IVVD", "LCTX",
 ]
@@ -53,13 +58,24 @@ def generate_candidates():
             "relevant_uuids": [],  #fill in by hand in json
         }
         if not results:
-            entry["note"] = "no candidate articles returned — confirm this is correct before treating as resolved"
+            entry["note"] = "no candidate articles returned"
  
         candidates.append(entry)
         print(f"  {query} -> {len(results)} candidates")
+
+    output = {
+        "metadata": {
+            "created_at": date.today().isoformat(),
+            "tickers": MY_TICKERS,
+            "general_query_templates": GENERAL_QUERIES,
+            "cross_ticker_queries": CROSS_TICKER_QUERIES,
+            "notes": NOTES,
+        },
+        "queries": candidates,
+    }
  
     with open("eval_candidates.json", "w") as f:
-        json.dump(candidates, f, indent=2)
+        json.dump(output, f, indent=2)
  
     print(f"\nWrote {len(candidates)} queries to eval_candidates.json")
     print("Next: open the file and fill in relevant_uuids for each query.")
