@@ -18,9 +18,8 @@ def precision_at_k(returned_uuids: list[str], relevant_uuids: list[str]) -> floa
     hits = sum(1 for uuid in returned_uuids if uuid in relevant_set)
     return hits / len(returned_uuids)
 
-
-def score_eval_set(use_reranking: bool = False):
-    """Scores evl set from file in EVAL_SET_PATH"""
+def get_articles() -> list[dict]:
+    """Get articles once from MarketAux API and reuse for testing"""
     with open(EVAL_SET_PATH) as f:
         data = json.load(f)
 
@@ -31,7 +30,14 @@ def score_eval_set(use_reranking: bool = False):
         for entry in eval_set
         for article in entry.get("candidate_articles", [])
     })
+
     articles, _ = ingestion(all_tickers)
+
+    return articles, eval_set
+
+
+def score_eval_set(articles: list[dict], eval_set: list[dict], use_reranking: bool = False, top_k: int = 5):
+    """Scores articles and compares the results using reranking and not"""
 
     scores = []
     for entry in eval_set:
@@ -41,21 +47,22 @@ def score_eval_set(use_reranking: bool = False):
         tickers_seen = {a["ticker"] for a in entry.get("candidate_articles", [])}
         ticker = tickers_seen.pop() if len(tickers_seen) == 1 else None
 
-        results = hybrid_search(query, articles, ticker=ticker, top_k=5, use_reranking=use_reranking)
+        results = hybrid_search(query, articles, ticker=ticker, top_k=top_k, use_reranking=use_reranking)
         returned_uuids = [a["uuid"] for a in results]
 
         score = precision_at_k(returned_uuids, relevant_uuids)
         scores.append(score)
-        print(f"{query[:60]:60s} precision@5: {score:.2f}")
+        print(f"{query[:60]:60s} precision@{top_k}: {score:.2f}")
 
     avg = sum(scores) / len(scores) if scores else 0.0
-    print(f"\nAverage precision@5 across {len(scores)} queries: {avg:.3f}")
+    print(f"\nAverage precision@{top_k} across {len(scores)} queries: {avg:.3f}")
     return avg
 
 
 if __name__ == "__main__":
+    articles, eval_set = get_articles()
     print("=== Without reranking ===")
-    score_eval_set(use_reranking=False)
+    score_eval_set(articles, eval_set, use_reranking=False, top_k=5)
 
     print("\n=== With reranking ===")
-    score_eval_set(use_reranking=True)
+    score_eval_set(articles, eval_set, use_reranking=True, top_k=5)

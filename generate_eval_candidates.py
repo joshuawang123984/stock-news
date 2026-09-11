@@ -34,7 +34,7 @@ def build_query_list() -> list[tuple[str, str | None]]:
     return queries
  
  
-def generate_candidates():
+def generate_candidates(top_k : int):
     print(f"Fetching articles for {len(MY_TICKERS)} tickers...")
     articles, failed = ingestion(MY_TICKERS)
     if failed:
@@ -47,7 +47,7 @@ def generate_candidates():
   
     candidates = []
     for query, ticker in build_query_list():
-        results = hybrid_search(query, articles, ticker=ticker, top_k=5)
+        results = hybrid_search(query, articles, ticker=ticker, top_k=top_k)
  
         entry = {
             "query": query,
@@ -82,4 +82,4 @@ def generate_candidates():
  
  
 if __name__ == "__main__":
-    generate_candidates()
+    generate_candidates(top_k=5)
