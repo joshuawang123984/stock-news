@@ -2,7 +2,7 @@ import json
 from ingestion import ingestion
 from hybrid_search import hybrid_search
 
-EVAL_SET_PATH = "eval_set.json"
+EVAL_SET_PATH = "eval_top_dawgs.json"
 
 def precision_at_k(returned_uuids: list[str], relevant_uuids: list[str]) -> float:
     """Fraction of returned results that were judged relevant.
@@ -22,7 +22,9 @@ def precision_at_k(returned_uuids: list[str], relevant_uuids: list[str]) -> floa
 def score_eval_set(use_reranking: bool = False):
     """Scores evl set from file in EVAL_SET_PATH"""
     with open(EVAL_SET_PATH) as f:
-        eval_set = json.load(f)
+        data = json.load(f)
+
+    eval_set = data["queries"]
 
     all_tickers = list({
         article["ticker"]

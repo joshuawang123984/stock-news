@@ -4,21 +4,21 @@ from ingestion import ingestion
 from embed_and_store import embed_and_store
 from hybrid_search import hybrid_search
 
-OUTPUT_PATH = "eval_candidates.json"
+OUTPUT_PATH = "eval_top_dawgs.json"
 
-NOTES = "low-news-volume biotechs with meta as an outlier"
+NOTES = "largest publicly traded companies in the US (s&p 500 top dawgs)"
  
 MY_TICKERS = [
-    "SRPT", "CAN", "META", "MGNX", "NKTX", "PLX", "IVVD", "LCTX",
+    "NVDA", "AAPL", "GOOG", "GOOGL", "MSFT", "AMZN", "AVGO", "TSLA"
 ]
 
 GENERAL_QUERIES = [
     "What's the latest news on {ticker}?",
-    "Any recent clinical trial or FDA updates for {ticker}?",
+    "Any recent products or advancements for {ticker}?",
 ]
 
 CROSS_TICKER_QUERIES = [
-    "Which of my holdings had FDA-related news this week?",
+    "Which of my holdings do analysts say are bullish?",
     "Which of my holdings do analysts say are bearish?",
 ]
 
@@ -74,10 +74,10 @@ def generate_candidates():
         "queries": candidates,
     }
  
-    with open("eval_candidates.json", "w") as f:
+    with open(OUTPUT_PATH, "w") as f:
         json.dump(output, f, indent=2)
  
-    print(f"\nWrote {len(candidates)} queries to eval_candidates.json")
+    print(f"\nWrote {len(candidates)} queries to {OUTPUT_PATH}")
     print("Next: open the file and fill in relevant_uuids for each query.")
  
  

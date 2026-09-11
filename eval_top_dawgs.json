@@ -1,0 +1,449 @@
+{
+  "metadata": {
+    "created_at": "2026-09-10",
+    "tickers": [
+      "NVDA",
+      "AAPL",
+      "GOOG",
+      "GOOGL",
+      "MSFT",
+      "AMZN",
+      "AVGO",
+      "TSLA"
+    ],
+    "general_query_templates": [
+      "What's the latest news on {ticker}?",
+      "Any recent products or advancements for {ticker}?"
+    ],
+    "cross_ticker_queries": [
+      "Which of my holdings do analysts say are bullish?",
+      "Which of my holdings do analysts say are bearish?"
+    ],
+    "notes": "largest publicly traded companies in the US (s&p 500 top dawgs)"
+  },
+  "queries": [
+    {
+      "query": "What's the latest news on NVDA?",
+      "candidate_articles": [
+        {
+          "uuid": "ff03c93e-69f8-454b-935b-24bea449d8f1",
+          "title": "NVIDIA Corporation at Goldman Sachs Communacopia + Technology Conference Transcript",
+          "ticker": "NVDA"
+        },
+        {
+          "uuid": "8dcb164a-a434-41e4-9424-b54a8a9bc323",
+          "title": "NVIDIA Corporation (NVDA) Presents at Goldman Sachs Communacopia + Technology Conference 2026 Transcript",
+          "ticker": "NVDA"
+        },
+        {
+          "uuid": "0c640440-9673-4e70-b107-b08b3cbac78c",
+          "title": "Treasury Yields Surge as Bessent Signals New Bank Sanctions Amid Energy Shock",
+          "ticker": "NVDA"
+        }
+      ],
+      "relevant_uuids": [
+        "ff03c93e-69f8-454b-935b-24bea449d8f1",
+        "8dcb164a-a434-41e4-9424-b54a8a9bc323"
+      ]
+    },
+    {
+      "query": "Any recent products or advancements for NVDA?",
+      "candidate_articles": [
+        {
+          "uuid": "8dcb164a-a434-41e4-9424-b54a8a9bc323",
+          "title": "NVIDIA Corporation (NVDA) Presents at Goldman Sachs Communacopia + Technology Conference 2026 Transcript",
+          "ticker": "NVDA"
+        },
+        {
+          "uuid": "ff03c93e-69f8-454b-935b-24bea449d8f1",
+          "title": "NVIDIA Corporation at Goldman Sachs Communacopia + Technology Conference Transcript",
+          "ticker": "NVDA"
+        },
+        {
+          "uuid": "0c640440-9673-4e70-b107-b08b3cbac78c",
+          "title": "Treasury Yields Surge as Bessent Signals New Bank Sanctions Amid Energy Shock",
+          "ticker": "NVDA"
+        }
+      ],
+      "relevant_uuids": []
+    },
+    {
+      "query": "What's the latest news on AAPL?",
+      "candidate_articles": [
+        {
+          "uuid": "656053cc-fda9-4f2a-a54d-299e41f82034",
+          "title": "US Market Decline: Apple (AAPL) Rises Amid Economic Concerns",
+          "ticker": "AAPL"
+        },
+        {
+          "uuid": "7231c579-0539-48a3-a99c-f98627b4a6f1",
+          "title": "Apple (AAPL) Unveils iPhone Duo with AI Features Amid Market Movements",
+          "ticker": "AAPL"
+        },
+        {
+          "uuid": "168587cc-8829-481d-a7aa-4640011c5b90",
+          "title": "US Market Declines for Fourth Day Amid Rising Oil Prices and Inflation Concerns",
+          "ticker": "AAPL"
+        }
+      ],
+      "relevant_uuids": [
+        "656053cc-fda9-4f2a-a54d-299e41f82034",
+        "7231c579-0539-48a3-a99c-f98627b4a6f1"
+      ]
+    },
+    {
+      "query": "Any recent products or advancements for AAPL?",
+      "candidate_articles": [
+        {
+          "uuid": "656053cc-fda9-4f2a-a54d-299e41f82034",
+          "title": "US Market Decline: Apple (AAPL) Rises Amid Economic Concerns",
+          "ticker": "AAPL"
+        },
+        {
+          "uuid": "7231c579-0539-48a3-a99c-f98627b4a6f1",
+          "title": "Apple (AAPL) Unveils iPhone Duo with AI Features Amid Market Movements",
+          "ticker": "AAPL"
+        },
+        {
+          "uuid": "168587cc-8829-481d-a7aa-4640011c5b90",
+          "title": "US Market Declines for Fourth Day Amid Rising Oil Prices and Inflation Concerns",
+          "ticker": "AAPL"
+        }
+      ],
+      "relevant_uuids": [
+        "7231c579-0539-48a3-a99c-f98627b4a6f1"
+      ]
+    },
+    {
+      "query": "What's the latest news on GOOG?",
+      "candidate_articles": [
+        {
+          "uuid": "19292911-55d5-4f2b-afb4-d873ad828afc",
+          "title": "GOOG Looks 29.7% Overvalued on GF Value\u2122 as Investors Weigh Valuation and Guru Activity",
+          "ticker": "GOOG"
+        },
+        {
+          "uuid": "b63a87ea-d9a7-4a3f-b9c8-954d383e928c",
+          "title": "Google Just Made a Massive AI Bet Wall Street May Be Missing",
+          "ticker": "GOOG"
+        },
+        {
+          "uuid": "73f71408-c27c-49a2-8c56-273e4e6c706a",
+          "title": "Google Just Made an AI Move That Could Matter Far More Than Wall Street Thinks",
+          "ticker": "GOOG"
+        }
+      ],
+      "relevant_uuids": [
+        "b63a87ea-d9a7-4a3f-b9c8-954d383e928c",
+        "73f71408-c27c-49a2-8c56-273e4e6c706a"
+      ]
+    },
+    {
+      "query": "Any recent products or advancements for GOOG?",
+      "candidate_articles": [
+        {
+          "uuid": "19292911-55d5-4f2b-afb4-d873ad828afc",
+          "title": "GOOG Looks 29.7% Overvalued on GF Value\u2122 as Investors Weigh Valuation and Guru Activity",
+          "ticker": "GOOG"
+        },
+        {
+          "uuid": "b63a87ea-d9a7-4a3f-b9c8-954d383e928c",
+          "title": "Google Just Made a Massive AI Bet Wall Street May Be Missing",
+          "ticker": "GOOG"
+        },
+        {
+          "uuid": "73f71408-c27c-49a2-8c56-273e4e6c706a",
+          "title": "Google Just Made an AI Move That Could Matter Far More Than Wall Street Thinks",
+          "ticker": "GOOG"
+        }
+      ],
+      "relevant_uuids": []
+    },
+    {
+      "query": "What's the latest news on GOOGL?",
+      "candidate_articles": [
+        {
+          "uuid": "b63a87ea-d9a7-4a3f-b9c8-954d383e928c",
+          "title": "Google Just Made a Massive AI Bet Wall Street May Be Missing",
+          "ticker": "GOOGL"
+        },
+        {
+          "uuid": "73f71408-c27c-49a2-8c56-273e4e6c706a",
+          "title": "Google Just Made an AI Move That Could Matter Far More Than Wall Street Thinks",
+          "ticker": "GOOGL"
+        },
+        {
+          "uuid": "36b2df81-f7e7-4985-9ad8-9c866c7fc498",
+          "title": "Oil Jumped, Yields Followed, Stocks Held Together \u2014 CPI Decides the Next Move",
+          "ticker": "GOOGL"
+        }
+      ],
+      "relevant_uuids": [
+        "b63a87ea-d9a7-4a3f-b9c8-954d383e928c",
+        "73f71408-c27c-49a2-8c56-273e4e6c706a"
+      ]
+    },
+    {
+      "query": "Any recent products or advancements for GOOGL?",
+      "candidate_articles": [
+        {
+          "uuid": "73f71408-c27c-49a2-8c56-273e4e6c706a",
+          "title": "Google Just Made an AI Move That Could Matter Far More Than Wall Street Thinks",
+          "ticker": "GOOGL"
+        },
+        {
+          "uuid": "36b2df81-f7e7-4985-9ad8-9c866c7fc498",
+          "title": "Oil Jumped, Yields Followed, Stocks Held Together \u2014 CPI Decides the Next Move",
+          "ticker": "GOOGL"
+        },
+        {
+          "uuid": "b63a87ea-d9a7-4a3f-b9c8-954d383e928c",
+          "title": "Google Just Made a Massive AI Bet Wall Street May Be Missing",
+          "ticker": "GOOGL"
+        }
+      ],
+      "relevant_uuids": []
+    },
+    {
+      "query": "What's the latest news on MSFT?",
+      "candidate_articles": [
+        {
+          "uuid": "05e24cf2-416c-406d-8682-3ae7747f9d39",
+          "title": "ADBE Looks 58.2% Undervalued on GF Value\u2122 Amid Strategic AI Push",
+          "ticker": "MSFT"
+        },
+        {
+          "uuid": "b0e6c66b-5064-4a7e-aea5-94aef5bf5f63",
+          "title": "Microsoft Corporation at Citi Global TMT Conference Transcript",
+          "ticker": "MSFT"
+        },
+        {
+          "uuid": "0c640440-9673-4e70-b107-b08b3cbac78c",
+          "title": "Treasury Yields Surge as Bessent Signals New Bank Sanctions Amid Energy Shock",
+          "ticker": "MSFT"
+        }
+      ],
+      "relevant_uuids": [
+        "b0e6c66b-5064-4a7e-aea5-94aef5bf5f63"
+      ]
+    },
+    {
+      "query": "Any recent products or advancements for MSFT?",
+      "candidate_articles": [
+        {
+          "uuid": "b0e6c66b-5064-4a7e-aea5-94aef5bf5f63",
+          "title": "Microsoft Corporation at Citi Global TMT Conference Transcript",
+          "ticker": "MSFT"
+        },
+        {
+          "uuid": "05e24cf2-416c-406d-8682-3ae7747f9d39",
+          "title": "ADBE Looks 58.2% Undervalued on GF Value\u2122 Amid Strategic AI Push",
+          "ticker": "MSFT"
+        },
+        {
+          "uuid": "0c640440-9673-4e70-b107-b08b3cbac78c",
+          "title": "Treasury Yields Surge as Bessent Signals New Bank Sanctions Amid Energy Shock",
+          "ticker": "MSFT"
+        }
+      ],
+      "relevant_uuids": []
+    },
+    {
+      "query": "What's the latest news on AMZN?",
+      "candidate_articles": [
+        {
+          "uuid": "beb15a9a-0218-4753-8315-8840b0321674",
+          "title": "AMZN Looks 1.7% Overvalued on GF Value\u2122 Amid Mixed Signals",
+          "ticker": "AMZN"
+        },
+        {
+          "uuid": "2fd4aa5d-7f5f-4633-9e5a-1063deab5475",
+          "title": "Amazon Just Made Its Biggest ChatGPT Bet Yet",
+          "ticker": "AMZN"
+        },
+        {
+          "uuid": "012c7b99-5413-40db-b52a-70174d76331f",
+          "title": "AMZN Looks 1.7% Overvalued on GF Value\u2122 as Market Prices in Growth Despite Cash-Flow Challenges",
+          "ticker": "AMZN"
+        }
+      ],
+      "relevant_uuids": [
+        "2fd4aa5d-7f5f-4633-9e5a-1063deab5475"
+      ]
+    },
+    {
+      "query": "Any recent products or advancements for AMZN?",
+      "candidate_articles": [
+        {
+          "uuid": "012c7b99-5413-40db-b52a-70174d76331f",
+          "title": "AMZN Looks 1.7% Overvalued on GF Value\u2122 as Market Prices in Growth Despite Cash-Flow Challenges",
+          "ticker": "AMZN"
+        },
+        {
+          "uuid": "beb15a9a-0218-4753-8315-8840b0321674",
+          "title": "AMZN Looks 1.7% Overvalued on GF Value\u2122 Amid Mixed Signals",
+          "ticker": "AMZN"
+        },
+        {
+          "uuid": "2fd4aa5d-7f5f-4633-9e5a-1063deab5475",
+          "title": "Amazon Just Made Its Biggest ChatGPT Bet Yet",
+          "ticker": "AMZN"
+        }
+      ],
+      "relevant_uuids": []
+    },
+    {
+      "query": "What's the latest news on AVGO?",
+      "candidate_articles": [
+        {
+          "uuid": "54448cac-7e83-4ee3-97bc-457944c22ee9",
+          "title": "Our top 3 stocks that bucked the market\u2019s recent pullback \u2014 plus, a look at the bottom 3",
+          "ticker": "AVGO"
+        },
+        {
+          "uuid": "df4f4eee-3d8c-41c4-90bf-7130c56e263c",
+          "title": "AVGO Initiates Coverage On Piper Sandler -- Rating Set to Overweight",
+          "ticker": "AVGO"
+        },
+        {
+          "uuid": "5d8c7a1e-b637-49f8-afd2-47a94b72b1ef",
+          "title": "OpenAI Picked Broadcom for Its First Custom AI Chip. The Race for Number Two Just Got Dangerous.",
+          "ticker": "AVGO"
+        }
+      ],
+      "relevant_uuids": [
+        "df4f4eee-3d8c-41c4-90bf-7130c56e263c"
+      ]
+    },
+    {
+      "query": "Any recent products or advancements for AVGO?",
+      "candidate_articles": [
+        {
+          "uuid": "5d8c7a1e-b637-49f8-afd2-47a94b72b1ef",
+          "title": "OpenAI Picked Broadcom for Its First Custom AI Chip. The Race for Number Two Just Got Dangerous.",
+          "ticker": "AVGO"
+        },
+        {
+          "uuid": "df4f4eee-3d8c-41c4-90bf-7130c56e263c",
+          "title": "AVGO Initiates Coverage On Piper Sandler -- Rating Set to Overweight",
+          "ticker": "AVGO"
+        },
+        {
+          "uuid": "54448cac-7e83-4ee3-97bc-457944c22ee9",
+          "title": "Our top 3 stocks that bucked the market\u2019s recent pullback \u2014 plus, a look at the bottom 3",
+          "ticker": "AVGO"
+        }
+      ],
+      "relevant_uuids": []
+    },
+    {
+      "query": "What's the latest news on TSLA?",
+      "candidate_articles": [
+        {
+          "uuid": "318feb3d-284b-4fb4-8707-4c88b394a2b9",
+          "title": "TSL Faces Valuation Challenges Amid AI Market Caution: High P/E and No GF Value\u2122 Signal",
+          "ticker": "TSLA"
+        },
+        {
+          "uuid": "bf068f7f-9c0f-4de9-9081-d5f379879f2b",
+          "title": "Elon Musk's Underground Bet Just Got a Much Bigger Backer",
+          "ticker": "TSLA"
+        },
+        {
+          "uuid": "57d2363e-8408-4dab-8927-cd7f59f9ffc3",
+          "title": "Futures Slide As Yields, Oil Spike Ahead Of PPI",
+          "ticker": "TSLA"
+        }
+      ],
+      "relevant_uuids": [
+        "318feb3d-284b-4fb4-8707-4c88b394a2b9"
+      ]
+    },
+    {
+      "query": "Any recent products or advancements for TSLA?",
+      "candidate_articles": [
+        {
+          "uuid": "318feb3d-284b-4fb4-8707-4c88b394a2b9",
+          "title": "TSL Faces Valuation Challenges Amid AI Market Caution: High P/E and No GF Value\u2122 Signal",
+          "ticker": "TSLA"
+        },
+        {
+          "uuid": "57d2363e-8408-4dab-8927-cd7f59f9ffc3",
+          "title": "Futures Slide As Yields, Oil Spike Ahead Of PPI",
+          "ticker": "TSLA"
+        },
+        {
+          "uuid": "bf068f7f-9c0f-4de9-9081-d5f379879f2b",
+          "title": "Elon Musk's Underground Bet Just Got a Much Bigger Backer",
+          "ticker": "TSLA"
+        }
+      ],
+      "relevant_uuids": []
+    },
+    {
+      "query": "Which of my holdings do analysts say are bullish?",
+      "candidate_articles": [
+        {
+          "uuid": "b63a87ea-d9a7-4a3f-b9c8-954d383e928c",
+          "title": "Google Just Made a Massive AI Bet Wall Street May Be Missing",
+          "ticker": "GOOGL"
+        },
+        {
+          "uuid": "73f71408-c27c-49a2-8c56-273e4e6c706a",
+          "title": "Google Just Made an AI Move That Could Matter Far More Than Wall Street Thinks",
+          "ticker": "GOOGL"
+        },
+        {
+          "uuid": "beb15a9a-0218-4753-8315-8840b0321674",
+          "title": "AMZN Looks 1.7% Overvalued on GF Value\u2122 Amid Mixed Signals",
+          "ticker": "AMZN"
+        },
+        {
+          "uuid": "0c640440-9673-4e70-b107-b08b3cbac78c",
+          "title": "Treasury Yields Surge as Bessent Signals New Bank Sanctions Amid Energy Shock",
+          "ticker": "MSFT"
+        },
+        {
+          "uuid": "012c7b99-5413-40db-b52a-70174d76331f",
+          "title": "AMZN Looks 1.7% Overvalued on GF Value\u2122 as Market Prices in Growth Despite Cash-Flow Challenges",
+          "ticker": "AMZN"
+        }
+      ],
+      "relevant_uuids": []
+    },
+    {
+      "query": "Which of my holdings do analysts say are bearish?",
+      "candidate_articles": [
+        {
+          "uuid": "b63a87ea-d9a7-4a3f-b9c8-954d383e928c",
+          "title": "Google Just Made a Massive AI Bet Wall Street May Be Missing",
+          "ticker": "GOOGL"
+        },
+        {
+          "uuid": "beb15a9a-0218-4753-8315-8840b0321674",
+          "title": "AMZN Looks 1.7% Overvalued on GF Value\u2122 Amid Mixed Signals",
+          "ticker": "AMZN"
+        },
+        {
+          "uuid": "73f71408-c27c-49a2-8c56-273e4e6c706a",
+          "title": "Google Just Made an AI Move That Could Matter Far More Than Wall Street Thinks",
+          "ticker": "GOOGL"
+        },
+        {
+          "uuid": "0c640440-9673-4e70-b107-b08b3cbac78c",
+          "title": "Treasury Yields Surge as Bessent Signals New Bank Sanctions Amid Energy Shock",
+          "ticker": "MSFT"
+        },
+        {
+          "uuid": "012c7b99-5413-40db-b52a-70174d76331f",
+          "title": "AMZN Looks 1.7% Overvalued on GF Value\u2122 as Market Prices in Growth Despite Cash-Flow Challenges",
+          "ticker": "AMZN"
+        }
+      ],
+      "relevant_uuids": [
+        "beb15a9a-0218-4753-8315-8840b0321674",
+        "012c7b99-5413-40db-b52a-70174d76331f"
+      ]
+    }
+  ]
+}
