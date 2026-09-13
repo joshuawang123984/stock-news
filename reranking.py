@@ -1,4 +1,4 @@
-from constants import reranker
+from resources import get_reranker
 
 def rerank(query: str, articles: list[dict], top_k: int = 5) -> list[dict]:
     """Re-scores a list of candidate articles against the query using a
@@ -19,7 +19,7 @@ def rerank(query: str, articles: list[dict], top_k: int = 5) -> list[dict]:
         to top_k.
     """
     pairs = [[query, f"{a['title']}. {a['description']}"] for a in articles]
-    scores = reranker.predict(pairs)
+    scores = get_reranker().predict(pairs)
 
     ranked = sorted(zip(articles, scores), key=lambda x: x[1], reverse=True)
     return [article for article, _ in ranked[:top_k]]

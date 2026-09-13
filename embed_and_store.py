@@ -1,5 +1,5 @@
 from qdrant_client.models import VectorParams, Distance, PointStruct
-from constants import model, client, COLLECTION_NAME
+from resources import get_model, get_client, COLLECTION_NAME
 
 
 def embed(articles: list[dict]) -> list[PointStruct]:
@@ -16,7 +16,7 @@ def embed(articles: list[dict]) -> list[PointStruct]:
     """
 
     texts = [f"{a['title']}. {a['description']}" for a in articles]
-    vectors = model.encode(texts)
+    vectors = get_model().encode(texts)
 
     points = [
         PointStruct(id=a["uuid"], vector=v.tolist(), payload=a)
@@ -35,13 +35,13 @@ def store(points: list[PointStruct]) -> None:
         points: PointStruct objects as returned by embed().
     """
     
-    if not client.collection_exists(COLLECTION_NAME):
-            client.create_collection(
+    if not get_client().collection_exists(COLLECTION_NAME):
+            get_client().create_collection(
                 collection_name=COLLECTION_NAME,
                 vectors_config=VectorParams(size=384, distance=Distance.COSINE),
             )
             
-    client.upsert(collection_name=COLLECTION_NAME, points=points)
+    get_client().upsert(collection_name=COLLECTION_NAME, points=points)
 
 def embed_and_store(articles: list[dict]) -> None:
     """Embed a batch of articles and store them in Qdrant.

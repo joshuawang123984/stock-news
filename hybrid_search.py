@@ -1,11 +1,11 @@
 from rank_bm25 import BM25Okapi
 from qdrant_client.models import Filter, FieldCondition, MatchValue
 from reranking import rerank
-from constants import model, client, COLLECTION_NAME
+from resources import get_model, get_client, COLLECTION_NAME
 
 def dense_search(query: str, ticker: str | None = None, top_k: int = 20) -> list[dict]:
     """Vector similarity search in Qdrant. Returns similar articles."""
-    query_vector = model.encode(query).tolist()
+    query_vector = get_model().encode(query).tolist()
 
     query_filter = None
     if ticker:
@@ -13,7 +13,7 @@ def dense_search(query: str, ticker: str | None = None, top_k: int = 20) -> list
             must=[FieldCondition(key="ticker", match=MatchValue(value=ticker))]
         )
         
-    results = client.query_points(
+    results = get_client().query_points(
         collection_name=COLLECTION_NAME,
         query=query_vector,
         query_filter=query_filter,

@@ -5,7 +5,7 @@ from unittest.mock import patch, MagicMock
 from embed_and_store import embed, store
 
 from qdrant_client.models import VectorParams, Distance, PointStruct
-from constants import COLLECTION_NAME
+from resources import COLLECTION_NAME
 
 # --- Tests for embed ---
 
@@ -40,8 +40,8 @@ def test_embed_returns_empty_list_if_articles_is_empty():
 
     assert len(result) == 0
 
-@patch("embed_and_store.model.encode")
-def test_embed_uses_title_and_description(mock_encode):
+@patch("embed_and_store.get_model")
+def test_embed_uses_title_and_description(mock_get_model):
     """Embed should return the mocked embedding"""
     articles = [
         {
@@ -53,17 +53,17 @@ def test_embed_uses_title_and_description(mock_encode):
 
     fake_vector = MagicMock()
     fake_vector.tolist.return_value = [0.1, 0.2, 0.3]
-    mock_encode.return_value = [fake_vector]
+    mock_get_model.return_value.encode.return_value = [fake_vector]
 
     result = embed(articles)
 
-    mock_encode.assert_called_once_with(["title 1. desc 1"])
+    mock_get_model.return_value.encode.assert_called_once_with(["title 1. desc 1"])
     assert result[0].vector == [0.1, 0.2, 0.3]
 
 # --- Tests for store ---
 
-@patch("embed_and_store.client")
-def test_store_creates_collection_if_needed(mock_client):
+@patch("embed_and_store.get_client")
+def test_store_creates_collection_if_needed(mock_get_client):
     """Should create the Qdrant collection if it does not already exist."""
 
     points = [
@@ -74,12 +74,11 @@ def test_store_creates_collection_if_needed(mock_client):
         )
     ]
 
-    mock_client.collection_exists.return_value = False
-
+    mock_get_client.return_value.collection_exists.return_value = False
     store(points)
 
-    mock_client.collection_exists.assert_called_once_with(COLLECTION_NAME)
-    mock_client.create_collection.assert_called_once_with(
+    mock_get_client.return_value.collection_exists.assert_called_once_with(COLLECTION_NAME)
+    mock_get_client.return_value.create_collection.assert_called_once_with(
         collection_name=COLLECTION_NAME,
         vectors_config=VectorParams(
             size=384,
@@ -88,8 +87,8 @@ def test_store_creates_collection_if_needed(mock_client):
     )
 
 
-@patch("embed_and_store.client")
-def test_store_does_not_create_collection_if_exists(mock_client):
+@patch("embed_and_store.get_client")
+def test_store_does_not_create_collection_if_exists(mock_get_client):
     """Should not create the Qdrant collection if it already exists."""
 
     points = [
@@ -100,15 +99,15 @@ def test_store_does_not_create_collection_if_exists(mock_client):
         )
     ]
 
-    mock_client.collection_exists.return_value = True
+    mock_get_client.return_value.collection_exists.return_value = True
 
     store(points)
 
-    mock_client.create_collection.assert_not_called()
+    mock_get_client.return_value.create_collection.assert_not_called()
 
 
-@patch("embed_and_store.client")
-def test_store_upserts_points(mock_client):
+@patch("embed_and_store.get_client")
+def test_store_upserts_points(mock_get_client):
     """Should upsert the provided points into the Qdrant collection."""
 
     points = [
@@ -124,13 +123,11 @@ def test_store_upserts_points(mock_client):
         )
     ]
 
-    mock_client.collection_exists.return_value = True
+    mock_get_client.return_value.collection_exists.return_value = True
 
     store(points)
 
-    mock_client.upsert.assert_called_once_with(
+    mock_get_client.return_value.upsert.assert_called_once_with(
         collection_name=COLLECTION_NAME,
         points=points,
     )
-
-# --- Tests for embed_and_store ---

@@ -1,33 +1,5 @@
-import platform
-from llama_cpp import Llama
 from hybrid_search import hybrid_search
-
-def get_gpu_layers() -> int:
-    """Returns the number of layers to offload to gpu, or 0 for cpu.
-    """
-    try:
-        import torch
-        if torch.cuda.is_available():
-            return -1  
-        if platform.system() == "Darwin" and platform.processor() == "arm":
-            return -1  
-    except ImportError:
-        pass
-    return 0  # no gp support detected, or torch not installed —> cpu 
-
-
-# caches per process (not lifetime)
-_llm = None
-
-def get_llm() -> Llama:
-    global _llm
-    if _llm is None:
-        _llm = Llama(
-            model_path="./models/mistral-7b-instruct-v0.2.Q4_K_M.gguf",
-            n_ctx=4096,
-            n_gpu_layers=get_gpu_layers(),
-        )
-    return _llm
+from resources import get_llm
 
 def generate_summary(query: str, articles: list[dict]) -> str:
     """Generates a grounded answer to the query using only the provided

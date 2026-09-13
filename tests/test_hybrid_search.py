@@ -95,38 +95,38 @@ def test_sparse_search_searches_everything_when_ticker_is_none():
 
 # --- dense_search ---
 
-@patch("hybrid_search.client")
-@patch("hybrid_search.model")
-def test_dense_search_returns_payloads_from_qdrant_results(mock_model, mock_client):
+@patch("hybrid_search.get_client")
+@patch("hybrid_search.get_model")
+def test_dense_search_returns_payloads_from_qdrant_results(mock_get_model, mock_get_client):
     """Should return the payload of each point Qdrant returns, in order."""
-    mock_model.encode.return_value.tolist.return_value = [0.1, 0.2, 0.3]
+    mock_get_model.return_value.encode.return_value.tolist.return_value = [0.1, 0.2, 0.3]
 
     fake_point = MagicMock()
     fake_point.payload = {"uuid": "abc", "title": "Test article"}
 
     mock_response = MagicMock()
     mock_response.points = [fake_point]
-    mock_client.query_points.return_value = mock_response
+    mock_get_client.return_value.query_points.return_value = mock_response
 
     results = dense_search("some query", top_k=5)
 
     assert results == [{"uuid": "abc", "title": "Test article"}]
-    mock_client.query_points.assert_called_once()
+    mock_get_client.return_value.query_points.assert_called_once()
 
-@patch("hybrid_search.client")
-@patch("hybrid_search.model")
-def test_dense_search_applies_ticker_filter_when_given(mock_model, mock_client):
+@patch("hybrid_search.get_client")
+@patch("hybrid_search.get_model")
+def test_dense_search_applies_ticker_filter_when_given(mock_get_model, mock_get_client):
     """When a ticker is passed, the Qdrant call should include a filter
     restricting results to said ticker."""
-    mock_model.encode.return_value.tolist.return_value = [0.1, 0.2, 0.3]
+    mock_get_model.return_value.encode.return_value.tolist.return_value = [0.1, 0.2, 0.3]
 
     mock_response = MagicMock()
     mock_response.points = []
-    mock_client.query_points.return_value = mock_response
+    mock_get_client.return_value.query_points.return_value = mock_response
 
     dense_search("some query", ticker="META", top_k=5)
 
     # Check that query_points was called with a query_filter argument,
     # not left as None
-    call_kwargs = mock_client.query_points.call_args.kwargs
+    call_kwargs = mock_get_client.return_value.query_points.call_args.kwargs
     assert call_kwargs["query_filter"] is not None
