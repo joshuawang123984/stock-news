@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "created_at": "2026-09-10",
+    "created_at": "2026-09-12",
     "tickers": [
       "NVDA",
       "AAPL",
@@ -12,8 +12,7 @@
       "TSLA"
     ],
     "general_query_templates": [
-      "What's the latest news on {ticker}?",
-      "Any recent products or advancements for {ticker}?"
+      "What's the latest news on {ticker}?"
     ],
     "cross_ticker_queries": [
       "Which of my holdings do analysts say are bullish?",
@@ -26,8 +25,18 @@
       "query": "What's the latest news on NVDA?",
       "candidate_articles": [
         {
-          "uuid": "ff03c93e-69f8-454b-935b-24bea449d8f1",
-          "title": "NVIDIA Corporation at Goldman Sachs Communacopia + Technology Conference Transcript",
+          "uuid": "25ea3b5b-1fad-42b8-9733-4d2f14782a43",
+          "title": "Nvidia (NVDA)’s 2 GW Australia AI Push Could Deepen Its Infrastructure Advantage",
+          "ticker": "NVDA"
+        },
+        {
+          "uuid": "1fab08dc-b0f7-4b76-a62f-d16591c5635a",
+          "title": "Adobe: After Lifting Guidance, Is the Beaten-Down Stock Ready to Break Out?",
+          "ticker": "NVDA"
+        },
+        {
+          "uuid": "c5359b8e-5209-494d-a247-9f928c82cd9a",
+          "title": "Down 30% This Year, Is It Finally Time to Buy SoFi Stock?",
           "ticker": "NVDA"
         },
         {
@@ -36,48 +45,43 @@
           "ticker": "NVDA"
         },
         {
-          "uuid": "0c640440-9673-4e70-b107-b08b3cbac78c",
-          "title": "Treasury Yields Surge as Bessent Signals New Bank Sanctions Amid Energy Shock",
+          "uuid": "ff03c93e-69f8-454b-935b-24bea449d8f1",
+          "title": "NVIDIA Corporation at Goldman Sachs Communacopia + Technology Conference Transcript",
           "ticker": "NVDA"
         }
       ],
       "relevant_uuids": [
-        "ff03c93e-69f8-454b-935b-24bea449d8f1",
-        "8dcb164a-a434-41e4-9424-b54a8a9bc323"
+        "25ea3b5b-1fad-42b8-9733-4d2f14782a43",
+        "8dcb164a-a434-41e4-9424-b54a8a9bc323",
+        "ff03c93e-69f8-454b-935b-24bea449d8f1"
       ]
-    },
-    {
-      "query": "Any recent products or advancements for NVDA?",
-      "candidate_articles": [
-        {
-          "uuid": "8dcb164a-a434-41e4-9424-b54a8a9bc323",
-          "title": "NVIDIA Corporation (NVDA) Presents at Goldman Sachs Communacopia + Technology Conference 2026 Transcript",
-          "ticker": "NVDA"
-        },
-        {
-          "uuid": "ff03c93e-69f8-454b-935b-24bea449d8f1",
-          "title": "NVIDIA Corporation at Goldman Sachs Communacopia + Technology Conference Transcript",
-          "ticker": "NVDA"
-        },
-        {
-          "uuid": "0c640440-9673-4e70-b107-b08b3cbac78c",
-          "title": "Treasury Yields Surge as Bessent Signals New Bank Sanctions Amid Energy Shock",
-          "ticker": "NVDA"
-        }
-      ],
-      "relevant_uuids": []
     },
     {
       "query": "What's the latest news on AAPL?",
       "candidate_articles": [
         {
-          "uuid": "656053cc-fda9-4f2a-a54d-299e41f82034",
-          "title": "US Market Decline: Apple (AAPL) Rises Amid Economic Concerns",
+          "uuid": "850e552c-af3a-41ff-a6a8-e7fd0016336a",
+          "title": "Stocks stumble on inflation fears, but 2 of our names give us reasons to stay bullish",
+          "ticker": "AAPL"
+        },
+        {
+          "uuid": "a93178de-33ef-46e9-b700-473771bc3a79",
+          "title": "Should You Ignore MP Materials and Buy This Rare-Earth Stock Instead?",
           "ticker": "AAPL"
         },
         {
           "uuid": "7231c579-0539-48a3-a99c-f98627b4a6f1",
           "title": "Apple (AAPL) Unveils iPhone Duo with AI Features Amid Market Movements",
+          "ticker": "AAPL"
+        },
+        {
+          "uuid": "656053cc-fda9-4f2a-a54d-299e41f82034",
+          "title": "US Market Decline: Apple (AAPL) Rises Amid Economic Concerns",
+          "ticker": "AAPL"
+        },
+        {
+          "uuid": "561d6fc5-6d0a-4e04-92a5-1239af147b29",
+          "title": "$2.3 Billion in Daily Profits: Why Betting Against the Magnificent 7 Keeps Failing",
           "ticker": "AAPL"
         },
         {
@@ -87,31 +91,11 @@
         }
       ],
       "relevant_uuids": [
+        "850e552c-af3a-41ff-a6a8-e7fd0016336a",
+        "7231c579-0539-48a3-a99c-f98627b4a6f1",
         "656053cc-fda9-4f2a-a54d-299e41f82034",
-        "7231c579-0539-48a3-a99c-f98627b4a6f1"
-      ]
-    },
-    {
-      "query": "Any recent products or advancements for AAPL?",
-      "candidate_articles": [
-        {
-          "uuid": "656053cc-fda9-4f2a-a54d-299e41f82034",
-          "title": "US Market Decline: Apple (AAPL) Rises Amid Economic Concerns",
-          "ticker": "AAPL"
-        },
-        {
-          "uuid": "7231c579-0539-48a3-a99c-f98627b4a6f1",
-          "title": "Apple (AAPL) Unveils iPhone Duo with AI Features Amid Market Movements",
-          "ticker": "AAPL"
-        },
-        {
-          "uuid": "168587cc-8829-481d-a7aa-4640011c5b90",
-          "title": "US Market Declines for Fourth Day Amid Rising Oil Prices and Inflation Concerns",
-          "ticker": "AAPL"
-        }
-      ],
-      "relevant_uuids": [
-        "7231c579-0539-48a3-a99c-f98627b4a6f1"
+        "561d6fc5-6d0a-4e04-92a5-1239af147b29",
+        "168587cc-8829-481d-a7aa-4640011c5b90"
       ]
     },
     {
@@ -119,52 +103,52 @@
       "candidate_articles": [
         {
           "uuid": "19292911-55d5-4f2b-afb4-d873ad828afc",
-          "title": "GOOG Looks 29.7% Overvalued on GF Value\u2122 as Investors Weigh Valuation and Guru Activity",
+          "title": "GOOG Looks 29.7% Overvalued on GF Value™ as Investors Weigh Valuation and Guru Activity",
           "ticker": "GOOG"
         },
         {
-          "uuid": "b63a87ea-d9a7-4a3f-b9c8-954d383e928c",
-          "title": "Google Just Made a Massive AI Bet Wall Street May Be Missing",
+          "uuid": "189a0b14-cb1e-46e6-ab1b-d2c0629fff74",
+          "title": "Google's Historic 396 MW Clean Energy Deal Just Changed the Game for 1 AI Power Play",
           "ticker": "GOOG"
         },
         {
-          "uuid": "73f71408-c27c-49a2-8c56-273e4e6c706a",
-          "title": "Google Just Made an AI Move That Could Matter Far More Than Wall Street Thinks",
+          "uuid": "856c723b-3183-4e08-a178-0c3033d858c2",
+          "title": "Not Nvidia. Not Micron. This Dirt Cheap “Magnificent Seven” Stock Could Be the Biggest Winner of the Trillion-Dollar AI Race – Here’s the Case.",
+          "ticker": "GOOG"
+        },
+        {
+          "uuid": "561d6fc5-6d0a-4e04-92a5-1239af147b29",
+          "title": "$2.3 Billion in Daily Profits: Why Betting Against the Magnificent 7 Keeps Failing",
           "ticker": "GOOG"
         }
       ],
       "relevant_uuids": [
-        "b63a87ea-d9a7-4a3f-b9c8-954d383e928c",
-        "73f71408-c27c-49a2-8c56-273e4e6c706a"
+        "19292911-55d5-4f2b-afb4-d873ad828afc",
+        "189a0b14-cb1e-46e6-ab1b-d2c0629fff74",
+        "856c723b-3183-4e08-a178-0c3033d858c2"
       ]
-    },
-    {
-      "query": "Any recent products or advancements for GOOG?",
-      "candidate_articles": [
-        {
-          "uuid": "19292911-55d5-4f2b-afb4-d873ad828afc",
-          "title": "GOOG Looks 29.7% Overvalued on GF Value\u2122 as Investors Weigh Valuation and Guru Activity",
-          "ticker": "GOOG"
-        },
-        {
-          "uuid": "b63a87ea-d9a7-4a3f-b9c8-954d383e928c",
-          "title": "Google Just Made a Massive AI Bet Wall Street May Be Missing",
-          "ticker": "GOOG"
-        },
-        {
-          "uuid": "73f71408-c27c-49a2-8c56-273e4e6c706a",
-          "title": "Google Just Made an AI Move That Could Matter Far More Than Wall Street Thinks",
-          "ticker": "GOOG"
-        }
-      ],
-      "relevant_uuids": []
     },
     {
       "query": "What's the latest news on GOOGL?",
       "candidate_articles": [
         {
+          "uuid": "189a0b14-cb1e-46e6-ab1b-d2c0629fff74",
+          "title": "Google's Historic 396 MW Clean Energy Deal Just Changed the Game for 1 AI Power Play",
+          "ticker": "GOOGL"
+        },
+        {
+          "uuid": "856c723b-3183-4e08-a178-0c3033d858c2",
+          "title": "Not Nvidia. Not Micron. This Dirt Cheap “Magnificent Seven” Stock Could Be the Biggest Winner of the Trillion-Dollar AI Race – Here’s the Case.",
+          "ticker": "GOOGL"
+        },
+        {
           "uuid": "b63a87ea-d9a7-4a3f-b9c8-954d383e928c",
           "title": "Google Just Made a Massive AI Bet Wall Street May Be Missing",
+          "ticker": "GOOGL"
+        },
+        {
+          "uuid": "de658788-d7c7-4591-8510-dcbae296b815",
+          "title": "Nvidia vs. AMD: Elon Musk Picked a Side on the SpaceX Earnings Call",
           "ticker": "GOOGL"
         },
         {
@@ -174,47 +158,43 @@
         },
         {
           "uuid": "36b2df81-f7e7-4985-9ad8-9c866c7fc498",
-          "title": "Oil Jumped, Yields Followed, Stocks Held Together \u2014 CPI Decides the Next Move",
+          "title": "Oil Jumped, Yields Followed, Stocks Held Together — CPI Decides the Next Move",
           "ticker": "GOOGL"
         }
       ],
       "relevant_uuids": [
+        "189a0b14-cb1e-46e6-ab1b-d2c0629fff74",
+        "856c723b-3183-4e08-a178-0c3033d858c2",
         "b63a87ea-d9a7-4a3f-b9c8-954d383e928c",
         "73f71408-c27c-49a2-8c56-273e4e6c706a"
       ]
     },
     {
-      "query": "Any recent products or advancements for GOOGL?",
-      "candidate_articles": [
-        {
-          "uuid": "73f71408-c27c-49a2-8c56-273e4e6c706a",
-          "title": "Google Just Made an AI Move That Could Matter Far More Than Wall Street Thinks",
-          "ticker": "GOOGL"
-        },
-        {
-          "uuid": "36b2df81-f7e7-4985-9ad8-9c866c7fc498",
-          "title": "Oil Jumped, Yields Followed, Stocks Held Together \u2014 CPI Decides the Next Move",
-          "ticker": "GOOGL"
-        },
-        {
-          "uuid": "b63a87ea-d9a7-4a3f-b9c8-954d383e928c",
-          "title": "Google Just Made a Massive AI Bet Wall Street May Be Missing",
-          "ticker": "GOOGL"
-        }
-      ],
-      "relevant_uuids": []
-    },
-    {
       "query": "What's the latest news on MSFT?",
       "candidate_articles": [
         {
-          "uuid": "05e24cf2-416c-406d-8682-3ae7747f9d39",
-          "title": "ADBE Looks 58.2% Undervalued on GF Value\u2122 Amid Strategic AI Push",
+          "uuid": "561d6fc5-6d0a-4e04-92a5-1239af147b29",
+          "title": "$2.3 Billion in Daily Profits: Why Betting Against the Magnificent 7 Keeps Failing",
+          "ticker": "MSFT"
+        },
+        {
+          "uuid": "99db557a-d13a-4257-bcf0-f3ba9f453521",
+          "title": "Prediction: Nvidia Stock Could Be Worth This Much by January 2028",
           "ticker": "MSFT"
         },
         {
           "uuid": "b0e6c66b-5064-4a7e-aea5-94aef5bf5f63",
           "title": "Microsoft Corporation at Citi Global TMT Conference Transcript",
+          "ticker": "MSFT"
+        },
+        {
+          "uuid": "de658788-d7c7-4591-8510-dcbae296b815",
+          "title": "Nvidia vs. AMD: Elon Musk Picked a Side on the SpaceX Earnings Call",
+          "ticker": "MSFT"
+        },
+        {
+          "uuid": "05e24cf2-416c-406d-8682-3ae7747f9d39",
+          "title": "ADBE Looks 58.2% Undervalued on GF Value™ Amid Strategic AI Push",
           "ticker": "MSFT"
         },
         {
@@ -224,85 +204,78 @@
         }
       ],
       "relevant_uuids": [
+        "561d6fc5-6d0a-4e04-92a5-1239af147b29",
         "b0e6c66b-5064-4a7e-aea5-94aef5bf5f63"
       ]
-    },
-    {
-      "query": "Any recent products or advancements for MSFT?",
-      "candidate_articles": [
-        {
-          "uuid": "b0e6c66b-5064-4a7e-aea5-94aef5bf5f63",
-          "title": "Microsoft Corporation at Citi Global TMT Conference Transcript",
-          "ticker": "MSFT"
-        },
-        {
-          "uuid": "05e24cf2-416c-406d-8682-3ae7747f9d39",
-          "title": "ADBE Looks 58.2% Undervalued on GF Value\u2122 Amid Strategic AI Push",
-          "ticker": "MSFT"
-        },
-        {
-          "uuid": "0c640440-9673-4e70-b107-b08b3cbac78c",
-          "title": "Treasury Yields Surge as Bessent Signals New Bank Sanctions Amid Energy Shock",
-          "ticker": "MSFT"
-        }
-      ],
-      "relevant_uuids": []
     },
     {
       "query": "What's the latest news on AMZN?",
       "candidate_articles": [
         {
+          "uuid": "f1b0dc8b-8670-43a6-9568-f7079284d319",
+          "title": "Jim Cramer Names Amazon (AMZN) a “Sleep-at-Night Growth Stock”",
+          "ticker": "AMZN"
+        },
+        {
+          "uuid": "10ffe377-2321-4686-bf3c-cb65a8e746f3",
+          "title": "Putin's China pivot complicates PM Modi's strategic balancing act",
+          "ticker": "AMZN"
+        },
+        {
+          "uuid": "84f5e652-1a1b-4f1d-a38d-054821e69987",
+          "title": "Qualcomm’s AI Ambitions Get a Boost From Amazon Partnership",
+          "ticker": "AMZN"
+        },
+        {
           "uuid": "beb15a9a-0218-4753-8315-8840b0321674",
-          "title": "AMZN Looks 1.7% Overvalued on GF Value\u2122 Amid Mixed Signals",
+          "title": "AMZN Looks 1.7% Overvalued on GF Value™ Amid Mixed Signals",
+          "ticker": "AMZN"
+        },
+        {
+          "uuid": "012c7b99-5413-40db-b52a-70174d76331f",
+          "title": "AMZN Looks 1.7% Overvalued on GF Value™ as Market Prices in Growth Despite Cash-Flow Challenges",
           "ticker": "AMZN"
         },
         {
           "uuid": "2fd4aa5d-7f5f-4633-9e5a-1063deab5475",
           "title": "Amazon Just Made Its Biggest ChatGPT Bet Yet",
-          "ticker": "AMZN"
-        },
-        {
-          "uuid": "012c7b99-5413-40db-b52a-70174d76331f",
-          "title": "AMZN Looks 1.7% Overvalued on GF Value\u2122 as Market Prices in Growth Despite Cash-Flow Challenges",
           "ticker": "AMZN"
         }
       ],
       "relevant_uuids": [
+        "f1b0dc8b-8670-43a6-9568-f7079284d319",
+        "84f5e652-1a1b-4f1d-a38d-054821e69987",
+        "beb15a9a-0218-4753-8315-8840b0321674",
+        "012c7b99-5413-40db-b52a-70174d76331f",
         "2fd4aa5d-7f5f-4633-9e5a-1063deab5475"
       ]
-    },
-    {
-      "query": "Any recent products or advancements for AMZN?",
-      "candidate_articles": [
-        {
-          "uuid": "012c7b99-5413-40db-b52a-70174d76331f",
-          "title": "AMZN Looks 1.7% Overvalued on GF Value\u2122 as Market Prices in Growth Despite Cash-Flow Challenges",
-          "ticker": "AMZN"
-        },
-        {
-          "uuid": "beb15a9a-0218-4753-8315-8840b0321674",
-          "title": "AMZN Looks 1.7% Overvalued on GF Value\u2122 Amid Mixed Signals",
-          "ticker": "AMZN"
-        },
-        {
-          "uuid": "2fd4aa5d-7f5f-4633-9e5a-1063deab5475",
-          "title": "Amazon Just Made Its Biggest ChatGPT Bet Yet",
-          "ticker": "AMZN"
-        }
-      ],
-      "relevant_uuids": []
     },
     {
       "query": "What's the latest news on AVGO?",
       "candidate_articles": [
         {
-          "uuid": "54448cac-7e83-4ee3-97bc-457944c22ee9",
-          "title": "Our top 3 stocks that bucked the market\u2019s recent pullback \u2014 plus, a look at the bottom 3",
+          "uuid": "d293cebd-1dd6-4cf7-9ee0-1f173ff0737e",
+          "title": "Marvell Rises 5% as Piper Sandler Starts Coverage With $270 Target; Broadcom Edges Higher, NVIDIA Holds Steady",
+          "ticker": "AVGO"
+        },
+        {
+          "uuid": "98cf41ec-69be-42ad-8552-8675b1158fd4",
+          "title": "Broadcom’s Custom AI Chip Boom Has a Powerful Landlord: TSM",
+          "ticker": "AVGO"
+        },
+        {
+          "uuid": "9494219c-655a-43ea-be57-f4ddb011d919",
+          "title": "The AI Infrastructure Stock That Could Make Investors Millionaires Is Hiding in Plain Sight, and Wall Street Isn’t Paying Attention",
           "ticker": "AVGO"
         },
         {
           "uuid": "df4f4eee-3d8c-41c4-90bf-7130c56e263c",
           "title": "AVGO Initiates Coverage On Piper Sandler -- Rating Set to Overweight",
+          "ticker": "AVGO"
+        },
+        {
+          "uuid": "54448cac-7e83-4ee3-97bc-457944c22ee9",
+          "title": "Our top 3 stocks that bucked the market’s recent pullback — plus, a look at the bottom 3",
           "ticker": "AVGO"
         },
         {
@@ -312,36 +285,35 @@
         }
       ],
       "relevant_uuids": [
-        "df4f4eee-3d8c-41c4-90bf-7130c56e263c"
+        "d293cebd-1dd6-4cf7-9ee0-1f173ff0737e",
+        "98cf41ec-69be-42ad-8552-8675b1158fd4",
+        "9494219c-655a-43ea-be57-f4ddb011d919",
+        "df4f4eee-3d8c-41c4-90bf-7130c56e263c",
+        "54448cac-7e83-4ee3-97bc-457944c22ee9",
+        "5d8c7a1e-b637-49f8-afd2-47a94b72b1ef"
       ]
-    },
-    {
-      "query": "Any recent products or advancements for AVGO?",
-      "candidate_articles": [
-        {
-          "uuid": "5d8c7a1e-b637-49f8-afd2-47a94b72b1ef",
-          "title": "OpenAI Picked Broadcom for Its First Custom AI Chip. The Race for Number Two Just Got Dangerous.",
-          "ticker": "AVGO"
-        },
-        {
-          "uuid": "df4f4eee-3d8c-41c4-90bf-7130c56e263c",
-          "title": "AVGO Initiates Coverage On Piper Sandler -- Rating Set to Overweight",
-          "ticker": "AVGO"
-        },
-        {
-          "uuid": "54448cac-7e83-4ee3-97bc-457944c22ee9",
-          "title": "Our top 3 stocks that bucked the market\u2019s recent pullback \u2014 plus, a look at the bottom 3",
-          "ticker": "AVGO"
-        }
-      ],
-      "relevant_uuids": []
     },
     {
       "query": "What's the latest news on TSLA?",
       "candidate_articles": [
         {
+          "uuid": "de658788-d7c7-4591-8510-dcbae296b815",
+          "title": "Nvidia vs. AMD: Elon Musk Picked a Side on the SpaceX Earnings Call",
+          "ticker": "TSLA"
+        },
+        {
+          "uuid": "8a7d8fa2-3dd9-487b-8e85-d36c868fa124",
+          "title": "Rivian Sacrificed Its 2027 Profit Target. Here's Why Investors Should Applaud.",
+          "ticker": "TSLA"
+        },
+        {
+          "uuid": "fb6a6826-c79b-4374-bbf9-7bc122ff8b37",
+          "title": "$10,000 in Tesla When It Joined the S&P 500 Would Be About $15,700 Today. An Index Fund Would Have Done Better.",
+          "ticker": "TSLA"
+        },
+        {
           "uuid": "318feb3d-284b-4fb4-8707-4c88b394a2b9",
-          "title": "TSL Faces Valuation Challenges Amid AI Market Caution: High P/E and No GF Value\u2122 Signal",
+          "title": "TSL Faces Valuation Challenges Amid AI Market Caution: High P/E and No GF Value™ Signal",
           "ticker": "TSLA"
         },
         {
@@ -356,93 +328,246 @@
         }
       ],
       "relevant_uuids": [
-        "318feb3d-284b-4fb4-8707-4c88b394a2b9"
+        "8a7d8fa2-3dd9-487b-8e85-d36c868fa124",
+        "fb6a6826-c79b-4374-bbf9-7bc122ff8b37",
+        "318feb3d-284b-4fb4-8707-4c88b394a2b9",
+        "bf068f7f-9c0f-4de9-9081-d5f379879f2b"
       ]
-    },
-    {
-      "query": "Any recent products or advancements for TSLA?",
-      "candidate_articles": [
-        {
-          "uuid": "318feb3d-284b-4fb4-8707-4c88b394a2b9",
-          "title": "TSL Faces Valuation Challenges Amid AI Market Caution: High P/E and No GF Value\u2122 Signal",
-          "ticker": "TSLA"
-        },
-        {
-          "uuid": "57d2363e-8408-4dab-8927-cd7f59f9ffc3",
-          "title": "Futures Slide As Yields, Oil Spike Ahead Of PPI",
-          "ticker": "TSLA"
-        },
-        {
-          "uuid": "bf068f7f-9c0f-4de9-9081-d5f379879f2b",
-          "title": "Elon Musk's Underground Bet Just Got a Much Bigger Backer",
-          "ticker": "TSLA"
-        }
-      ],
-      "relevant_uuids": []
     },
     {
       "query": "Which of my holdings do analysts say are bullish?",
       "candidate_articles": [
         {
-          "uuid": "b63a87ea-d9a7-4a3f-b9c8-954d383e928c",
-          "title": "Google Just Made a Massive AI Bet Wall Street May Be Missing",
-          "ticker": "GOOGL"
-        },
-        {
-          "uuid": "73f71408-c27c-49a2-8c56-273e4e6c706a",
-          "title": "Google Just Made an AI Move That Could Matter Far More Than Wall Street Thinks",
-          "ticker": "GOOGL"
-        },
-        {
-          "uuid": "beb15a9a-0218-4753-8315-8840b0321674",
-          "title": "AMZN Looks 1.7% Overvalued on GF Value\u2122 Amid Mixed Signals",
-          "ticker": "AMZN"
-        },
-        {
-          "uuid": "0c640440-9673-4e70-b107-b08b3cbac78c",
-          "title": "Treasury Yields Surge as Bessent Signals New Bank Sanctions Amid Energy Shock",
+          "uuid": "561d6fc5-6d0a-4e04-92a5-1239af147b29",
+          "title": "$2.3 Billion in Daily Profits: Why Betting Against the Magnificent 7 Keeps Failing",
           "ticker": "MSFT"
         },
         {
+          "uuid": "de658788-d7c7-4591-8510-dcbae296b815",
+          "title": "Nvidia vs. AMD: Elon Musk Picked a Side on the SpaceX Earnings Call",
+          "ticker": "MSFT"
+        },
+        {
+          "uuid": "856c723b-3183-4e08-a178-0c3033d858c2",
+          "title": "Not Nvidia. Not Micron. This Dirt Cheap “Magnificent Seven” Stock Could Be the Biggest Winner of the Trillion-Dollar AI Race – Here’s the Case.",
+          "ticker": "GOOGL"
+        },
+        {
+          "uuid": "850e552c-af3a-41ff-a6a8-e7fd0016336a",
+          "title": "Stocks stumble on inflation fears, but 2 of our names give us reasons to stay bullish",
+          "ticker": "AAPL"
+        },
+        {
+          "uuid": "f1b0dc8b-8670-43a6-9568-f7079284d319",
+          "title": "Jim Cramer Names Amazon (AMZN) a “Sleep-at-Night Growth Stock”",
+          "ticker": "AMZN"
+        },
+        {
+          "uuid": "c5359b8e-5209-494d-a247-9f928c82cd9a",
+          "title": "Down 30% This Year, Is It Finally Time to Buy SoFi Stock?",
+          "ticker": "NVDA"
+        },
+        {
+          "uuid": "1fab08dc-b0f7-4b76-a62f-d16591c5635a",
+          "title": "Adobe: After Lifting Guidance, Is the Beaten-Down Stock Ready to Break Out?",
+          "ticker": "NVDA"
+        },
+        {
+          "uuid": "189a0b14-cb1e-46e6-ab1b-d2c0629fff74",
+          "title": "Google's Historic 396 MW Clean Energy Deal Just Changed the Game for 1 AI Power Play",
+          "ticker": "GOOGL"
+        },
+        {
+          "uuid": "54448cac-7e83-4ee3-97bc-457944c22ee9",
+          "title": "Our top 3 stocks that bucked the market’s recent pullback — plus, a look at the bottom 3",
+          "ticker": "AVGO"
+        },
+        {
+          "uuid": "a93178de-33ef-46e9-b700-473771bc3a79",
+          "title": "Should You Ignore MP Materials and Buy This Rare-Earth Stock Instead?",
+          "ticker": "AAPL"
+        },
+        {
+          "uuid": "ea653ec1-3a7a-498a-8e42-78871ff2ce9d",
+          "title": "Bitcoin Mining Firms Report Lower Monthly Output as Crypto Bear Market Remains Firmly Intact",
+          "ticker": "CAN"
+        },
+        {
+          "uuid": "8a7d8fa2-3dd9-487b-8e85-d36c868fa124",
+          "title": "Rivian Sacrificed Its 2027 Profit Target. Here's Why Investors Should Applaud.",
+          "ticker": "TSLA"
+        },
+        {
+          "uuid": "4900b163-7ff4-4d86-a294-6185c723eb08",
+          "title": "Tech and AI Sectors Propel Markets Higher as Investors Await Adobe Earnings",
+          "ticker": "META"
+        },
+        {
+          "uuid": "98cf41ec-69be-42ad-8552-8675b1158fd4",
+          "title": "Broadcom’s Custom AI Chip Boom Has a Powerful Landlord: TSM",
+          "ticker": "AVGO"
+        },
+        {
+          "uuid": "d9cc4bab-b4b0-44b7-9e1b-8103104977ad",
+          "title": "Tech Resilience and Earnings Anticipation: Markets Steady Ahead of Adobe Results",
+          "ticker": "META"
+        },
+        {
+          "uuid": "25ea3b5b-1fad-42b8-9733-4d2f14782a43",
+          "title": "Nvidia (NVDA)’s 2 GW Australia AI Push Could Deepen Its Infrastructure Advantage",
+          "ticker": "NVDA"
+        },
+        {
+          "uuid": "cf9dec27-a08f-410e-86bc-785c90bb3230",
+          "title": "CAN Looks 28.1% Undervalued on GF Value™ Amid Bitcoin Mining Hardware Buzz",
+          "ticker": "CAN"
+        },
+        {
+          "uuid": "4fa2d3e0-5e67-48d3-bbe1-ee1f1e66445c",
+          "title": "Top Q2 Earnings Surprises: 21 Stocks That Beat Wall Street Estimates Yesterday",
+          "ticker": "PLX"
+        },
+        {
+          "uuid": "d293cebd-1dd6-4cf7-9ee0-1f173ff0737e",
+          "title": "Marvell Rises 5% as Piper Sandler Starts Coverage With $270 Target; Broadcom Edges Higher, NVIDIA Holds Steady",
+          "ticker": "AVGO"
+        },
+        {
           "uuid": "012c7b99-5413-40db-b52a-70174d76331f",
-          "title": "AMZN Looks 1.7% Overvalued on GF Value\u2122 as Market Prices in Growth Despite Cash-Flow Challenges",
+          "title": "AMZN Looks 1.7% Overvalued on GF Value™ as Market Prices in Growth Despite Cash-Flow Challenges",
           "ticker": "AMZN"
         }
       ],
-      "relevant_uuids": []
+      "relevant_uuids": [
+        "561d6fc5-6d0a-4e04-92a5-1239af147b29",
+        "856c723b-3183-4e08-a178-0c3033d858c2",
+        "850e552c-af3a-41ff-a6a8-e7fd0016336a",
+        "f1b0dc8b-8670-43a6-9568-f7079284d319",
+        "c5359b8e-5209-494d-a247-9f928c82cd9a",
+        "1fab08dc-b0f7-4b76-a62f-d16591c5635a",
+        "189a0b14-cb1e-46e6-ab1b-d2c0629fff74",
+        "54448cac-7e83-4ee3-97bc-457944c22ee9",
+        "a93178de-33ef-46e9-b700-473771bc3a79",
+        "8a7d8fa2-3dd9-487b-8e85-d36c868fa124",
+        "98cf41ec-69be-42ad-8552-8675b1158fd4",
+        "25ea3b5b-1fad-42b8-9733-4d2f14782a43",
+        "cf9dec27-a08f-410e-86bc-785c90bb3230",
+        "d293cebd-1dd6-4cf7-9ee0-1f173ff0737e"
+      ]
     },
     {
       "query": "Which of my holdings do analysts say are bearish?",
       "candidate_articles": [
         {
-          "uuid": "b63a87ea-d9a7-4a3f-b9c8-954d383e928c",
-          "title": "Google Just Made a Massive AI Bet Wall Street May Be Missing",
-          "ticker": "GOOGL"
-        },
-        {
-          "uuid": "beb15a9a-0218-4753-8315-8840b0321674",
-          "title": "AMZN Looks 1.7% Overvalued on GF Value\u2122 Amid Mixed Signals",
-          "ticker": "AMZN"
-        },
-        {
-          "uuid": "73f71408-c27c-49a2-8c56-273e4e6c706a",
-          "title": "Google Just Made an AI Move That Could Matter Far More Than Wall Street Thinks",
-          "ticker": "GOOGL"
-        },
-        {
-          "uuid": "0c640440-9673-4e70-b107-b08b3cbac78c",
-          "title": "Treasury Yields Surge as Bessent Signals New Bank Sanctions Amid Energy Shock",
+          "uuid": "561d6fc5-6d0a-4e04-92a5-1239af147b29",
+          "title": "$2.3 Billion in Daily Profits: Why Betting Against the Magnificent 7 Keeps Failing",
           "ticker": "MSFT"
         },
         {
-          "uuid": "012c7b99-5413-40db-b52a-70174d76331f",
-          "title": "AMZN Looks 1.7% Overvalued on GF Value\u2122 as Market Prices in Growth Despite Cash-Flow Challenges",
+          "uuid": "856c723b-3183-4e08-a178-0c3033d858c2",
+          "title": "Not Nvidia. Not Micron. This Dirt Cheap “Magnificent Seven” Stock Could Be the Biggest Winner of the Trillion-Dollar AI Race – Here’s the Case.",
+          "ticker": "GOOGL"
+        },
+        {
+          "uuid": "f1b0dc8b-8670-43a6-9568-f7079284d319",
+          "title": "Jim Cramer Names Amazon (AMZN) a “Sleep-at-Night Growth Stock”",
           "ticker": "AMZN"
+        },
+        {
+          "uuid": "c5359b8e-5209-494d-a247-9f928c82cd9a",
+          "title": "Down 30% This Year, Is It Finally Time to Buy SoFi Stock?",
+          "ticker": "NVDA"
+        },
+        {
+          "uuid": "a93178de-33ef-46e9-b700-473771bc3a79",
+          "title": "Should You Ignore MP Materials and Buy This Rare-Earth Stock Instead?",
+          "ticker": "AAPL"
+        },
+        {
+          "uuid": "850e552c-af3a-41ff-a6a8-e7fd0016336a",
+          "title": "Stocks stumble on inflation fears, but 2 of our names give us reasons to stay bullish",
+          "ticker": "AAPL"
+        },
+        {
+          "uuid": "1fab08dc-b0f7-4b76-a62f-d16591c5635a",
+          "title": "Adobe: After Lifting Guidance, Is the Beaten-Down Stock Ready to Break Out?",
+          "ticker": "NVDA"
+        },
+        {
+          "uuid": "189a0b14-cb1e-46e6-ab1b-d2c0629fff74",
+          "title": "Google's Historic 396 MW Clean Energy Deal Just Changed the Game for 1 AI Power Play",
+          "ticker": "GOOGL"
+        },
+        {
+          "uuid": "de658788-d7c7-4591-8510-dcbae296b815",
+          "title": "Nvidia vs. AMD: Elon Musk Picked a Side on the SpaceX Earnings Call",
+          "ticker": "MSFT"
+        },
+        {
+          "uuid": "ea653ec1-3a7a-498a-8e42-78871ff2ce9d",
+          "title": "Bitcoin Mining Firms Report Lower Monthly Output as Crypto Bear Market Remains Firmly Intact",
+          "ticker": "CAN"
+        },
+        {
+          "uuid": "54448cac-7e83-4ee3-97bc-457944c22ee9",
+          "title": "Our top 3 stocks that bucked the market’s recent pullback — plus, a look at the bottom 3",
+          "ticker": "AVGO"
+        },
+        {
+          "uuid": "8a7d8fa2-3dd9-487b-8e85-d36c868fa124",
+          "title": "Rivian Sacrificed Its 2027 Profit Target. Here's Why Investors Should Applaud.",
+          "ticker": "TSLA"
+        },
+        {
+          "uuid": "4900b163-7ff4-4d86-a294-6185c723eb08",
+          "title": "Tech and AI Sectors Propel Markets Higher as Investors Await Adobe Earnings",
+          "ticker": "META"
+        },
+        {
+          "uuid": "98cf41ec-69be-42ad-8552-8675b1158fd4",
+          "title": "Broadcom’s Custom AI Chip Boom Has a Powerful Landlord: TSM",
+          "ticker": "AVGO"
+        },
+        {
+          "uuid": "cf9dec27-a08f-410e-86bc-785c90bb3230",
+          "title": "CAN Looks 28.1% Undervalued on GF Value™ Amid Bitcoin Mining Hardware Buzz",
+          "ticker": "CAN"
+        },
+        {
+          "uuid": "d9cc4bab-b4b0-44b7-9e1b-8103104977ad",
+          "title": "Tech Resilience and Earnings Anticipation: Markets Steady Ahead of Adobe Results",
+          "ticker": "META"
+        },
+        {
+          "uuid": "beb15a9a-0218-4753-8315-8840b0321674",
+          "title": "AMZN Looks 1.7% Overvalued on GF Value™ Amid Mixed Signals",
+          "ticker": "AMZN"
+        },
+        {
+          "uuid": "25ea3b5b-1fad-42b8-9733-4d2f14782a43",
+          "title": "Nvidia (NVDA)’s 2 GW Australia AI Push Could Deepen Its Infrastructure Advantage",
+          "ticker": "NVDA"
+        },
+        {
+          "uuid": "012c7b99-5413-40db-b52a-70174d76331f",
+          "title": "AMZN Looks 1.7% Overvalued on GF Value™ as Market Prices in Growth Despite Cash-Flow Challenges",
+          "ticker": "AMZN"
+        },
+        {
+          "uuid": "4fa2d3e0-5e67-48d3-bbe1-ee1f1e66445c",
+          "title": "Top Q2 Earnings Surprises: 21 Stocks That Beat Wall Street Estimates Yesterday",
+          "ticker": "PLX"
         }
       ],
       "relevant_uuids": [
+        "19292911-55d5-4f2b-afb4-d873ad828afc",
+        "a93178de-33ef-46e9-b700-473771bc3a79",
+        "c5359b8e-5209-494d-a247-9f928c82cd9a",
         "beb15a9a-0218-4753-8315-8840b0321674",
-        "012c7b99-5413-40db-b52a-70174d76331f"
+        "012c7b99-5413-40db-b52a-70174d76331f",
+        "318feb3d-284b-4fb4-8707-4c88b394a2b9",
+        "fb6a6826-c79b-4374-bbf9-7bc122ff8b37",
+        "ea653ec1-3a7a-498a-8e42-78871ff2ce9d"
       ]
     }
   ]

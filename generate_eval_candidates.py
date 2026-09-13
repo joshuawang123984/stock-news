@@ -14,7 +14,6 @@ MY_TICKERS = [
 
 GENERAL_QUERIES = [
     "What's the latest news on {ticker}?",
-    "Any recent products or advancements for {ticker}?",
 ]
 
 CROSS_TICKER_QUERIES = [
@@ -82,4 +81,4 @@ def generate_candidates(top_k : int):
  
  
 if __name__ == "__main__":
-    generate_candidates(top_k=5)
+    generate_candidates(top_k=20)
