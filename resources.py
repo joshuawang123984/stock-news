@@ -7,6 +7,8 @@ import platform
 import torch
 
 COLLECTION_NAME = "stock_news"
+MODEL_PATH_1 = "./models/mistral-7b-instruct-v0.2.Q4_K_M.gguf"
+MODEL_PATH_2 = "./models/mistral-7b-instruct-v0.2.Q8_0.gguf"
 
 _model = None
 _client = None
@@ -47,7 +49,7 @@ def get_llm() -> Llama:
     global _llm
     if _llm is None:
         _llm = Llama(
-            model_path="./models/mistral-7b-instruct-v0.2.Q4_K_M.gguf",
+            model_path=MODEL_PATH_2,
             n_ctx=4096,
             n_gpu_layers=get_gpu_layers(),
         )

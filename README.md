@@ -74,22 +74,20 @@ vector storage.
 
 ## Monitoring and Benchmarking
 
-The project will measure performance across the major stages of the RAG
-pipeline, including:
+LLM inference is benchmarked across GGUF quantization levels (Q4_K_M,
+Q8_0), measuring:
 
-- Ingestion latency
-- Article processing time
-- Embedding generation time
-- Vector search latency
-- BM25 search latency
-- Cross-encoder reranking latency
-- LLM inference latency
-- Tokens per second
-- Memory / VRAM usage
+- Load time
+- Prompt processing speed (tokens/sec)
+- Generation speed (tokens/sec)
+- Memory usage
 
-Different LLM quantization levels such as FP16, INT8, and INT4 will be
-benchmarked to evaluate the tradeoffs between inference speed, resource
-usage, and output quality.
+Output is evaluated at each quantization level using a subset of
+the retrieval eval set's queries, and checking for proper citations 
+and grounding as the model size gets smaller from Q8_0 -> Q4_K_M.
+
+Retrieval quality (hybrid search, with and without reranking) is
+separately measured against a hand labeled eval set
 
 ## tech stack
 
