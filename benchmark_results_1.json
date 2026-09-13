@@ -1,0 +1,36 @@
+{
+  "model_path": "models/mistral-7b-instruct-v0.2.Q4_K_M.gguf",
+  "timestamp": "2026-09-13T14:41:35.668449",
+  "memory_at_start_mb": 447.65625,
+  "queries": [
+    {
+      "query": "What's the latest news on SRPT?",
+      "answer": "According to Article 1, SRPT shares rebounded sharply after a prior day's decline, surging nearly 10%. However, the article does not provide any specific information about the reason for the rebound or the current state of the company. The earnings call transcript and presentation from Q2 2026, as mentioned in Articles 4 and 5, might contain more detailed information about SRPT's financial performance and future prospects. (Article 1)",
+      "memory_after_mb": 5016.90625,
+      "elapsed_seconds": 9.427453125000056,
+      "tokens_per_second": 10.819465092805688,
+      "prompt_tokens": 644,
+      "completion_tokens": 102
+    },
+    {
+      "query": "Why are analysts saying SRPT is bullish?",
+      "answer": "The articles do not provide sufficient information to determine why analysts are saying SRPT is bullish. The articles discuss the rebound of SRPT shares after a decline, the challenges faced by Sarepta in terms of profitability and ELEVIDYS execution, and the overall market pressures affecting stocks, but they do not directly address the reason for bullish analyst sentiment towards SRPT.",
+      "memory_after_mb": 4985.328125,
+      "elapsed_seconds": 4.209610459000032,
+      "tokens_per_second": 19.241685374195185,
+      "prompt_tokens": 642,
+      "completion_tokens": 81
+    },
+    {
+      "query": "Why are analysts saying SRPT is bearish?",
+      "answer": "According to Article 4, analysts rate Sarepta (SRPT) as a hold due to execution risk and friction in ELEVIDYS uptake, despite the company's better profitability. (Article 4)",
+      "memory_after_mb": 4935.484375,
+      "elapsed_seconds": 2.3848579580001115,
+      "tokens_per_second": 21.804233592010668,
+      "prompt_tokens": 642,
+      "completion_tokens": 52
+    }
+  ],
+  "articles_fetched": 3,
+  "memory_after_model_load_mb": 4813.390625
+}

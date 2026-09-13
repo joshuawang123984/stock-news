@@ -30,7 +30,12 @@ def generate_summary(query: str, articles: list[dict]) -> str:
     Answer:"""
 
     response = get_llm()(prompt, max_tokens=300, temperature=0.2, stop=["Question:"])
-    return response["choices"][0]["text"].strip()
+    stats = {
+        "prompt_tokens": response["usage"]["prompt_tokens"],
+        "completion_tokens": response["usage"]["completion_tokens"],
+    }
+
+    return response["choices"][0]["text"].strip(), stats
 
 def answer_query(query: str, articles: list[dict], ticker: str | None = None) -> str:
     results = hybrid_search(query, articles, ticker=ticker, top_k=5, use_reranking=False) 

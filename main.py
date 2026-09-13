@@ -1,8 +1,11 @@
 from ingestion import ingestion
 from local_generation import answer_query
 from resources import get_llm
+from datetime import datetime
 import psutil
 import os
+import json
+import time
 
 TICKER = "SRPT"
 QUERIES = [
@@ -11,21 +14,46 @@ QUERIES = [
     "Why are analysts saying SRPT is bearish?",
 ]
 
+MODEL_PATH = "./models/mistral-7b-instruct-v0.2.Q8_0.gguf"
+OUTPUT_PATH = "benchmark_results_2.json"
+
 def get_memory_mb() -> float:
     """Returns the current process's resident memory usage in MB."""
     process = psutil.Process(os.getpid())
     return process.memory_info().rss / (1024 * 1024)
 
-print(f"Memory at script start: {get_memory_mb():.1f} MB")
+def run_benchmark():
+    results = {
+        "model_path": MODEL_PATH,
+        "timestamp": datetime.now().isoformat(),
+        "memory_at_start_mb": get_memory_mb(),
+        "queries": [],
+    }
 
-articles, failed = ingestion([TICKER])
-print(f"Fetched {len(articles)} articles.\n")
+    articles, failed = ingestion([TICKER])
+    results["articles_fetched"] = len(articles)
 
-get_llm()  # force model load ONCE, explicitly, before any queries
-print(f"Memory after model load: {get_memory_mb():.1f} MB")
+    get_llm() 
+    results["memory_after_model_load_mb"] = get_memory_mb()
 
-for query in QUERIES:
-    print(f"\nQuery: {query}")
-    answer = answer_query(query, articles, ticker=TICKER)
-    print(f"Memory after this generation: {get_memory_mb():.1f} MB")
-    print(f"Answer: {answer}\n")
+    for query in QUERIES:
+        start = time.perf_counter()
+        answer, stats = answer_query(query, articles, ticker=TICKER)
+        elapsed = time.perf_counter() - start
+
+        results["queries"].append({
+            "query": query,
+            "answer": answer,
+            "memory_after_mb": get_memory_mb(),
+            "elapsed_seconds": elapsed,
+            "tokens_per_second": stats["completion_tokens"] / elapsed if elapsed > 0 else None,
+            **stats,
+        })
+
+    with open(OUTPUT_PATH, "w") as f:
+        json.dump(results, f, indent=2)
+
+    print(f"Wrote results to {OUTPUT_PATH}")
+
+if __name__ == "__main__":
+    run_benchmark()

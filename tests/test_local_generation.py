@@ -30,14 +30,14 @@ def test_generate_summary_includes_articles_in_prompt(mock_get_llm):
     """The prompt sent to the model should include each article's title
     and description."""
     mock_model = MagicMock()
-    mock_model.return_value = {"choices": [{"text": "This is a test answer."}]}
+    mock_model.return_value = {"choices": [{"text": "This is a test answer."}], "usage": {"prompt_tokens": 50, "completion_tokens": 10}}
     mock_get_llm.return_value = mock_model
 
     articles = [
         {"title": "SRPT reports earnings", "description": "Strong quarter."},
     ]
 
-    result = generate_summary("What's new on SRPT?", articles)
+    result, stats = generate_summary("What's new on SRPT?", articles)
 
     called_prompt = mock_model.call_args[0][0]
     assert "SRPT reports earnings" in called_prompt
@@ -50,9 +50,9 @@ def test_generate_summary_handles_no_articles(mock_get_llm):
     """Should not crash if given an empty article list.
     the model should report it can't answer."""
     mock_model = MagicMock()
-    mock_model.return_value = {"choices": [{"text": "No information available."}]}
+    mock_model.return_value = {"choices": [{"text": "No information available."}], "usage": {"prompt_tokens": 0, "completion_tokens": 0}}
     mock_get_llm.return_value = mock_model
 
-    result = generate_summary("What's new on SRPT?", [])
+    result, stats = generate_summary("What's new on SRPT?", [])
 
     assert result == "No information available."

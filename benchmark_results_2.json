@@ -1,0 +1,36 @@
+{
+  "model_path": "./models/mistral-7b-instruct-v0.2.Q8_0.gguf",
+  "timestamp": "2026-09-13T14:42:49.337698",
+  "memory_at_start_mb": 445.5625,
+  "queries": [
+    {
+      "query": "What's the latest news on SRPT?",
+      "answer": "According to Article 1, SRPT shares rebounded sharply after a prior day's decline. The GF Value\u2122 in the article suggests that SRPT is 79.1% undervalued. However, the article does not provide any information about the reason for the prior day's decline or any recent news affecting SRPT specifically. Therefore, the latest news on SRPT, based on the given articles, is that its shares rebounded after being perceived as undervalued according to the GF Value\u2122, but the reason for the prior day's decline is unknown. (Article 1)",
+      "memory_after_mb": 1619.875,
+      "elapsed_seconds": 12.760937708000029,
+      "tokens_per_second": 10.030610831973172,
+      "prompt_tokens": 644,
+      "completion_tokens": 128
+    },
+    {
+      "query": "Why are analysts saying SRPT is bullish?",
+      "answer": "The articles do not provide enough information to determine why analysts are saying SRPT is bullish.",
+      "memory_after_mb": 1657.40625,
+      "elapsed_seconds": 2.0120941669999866,
+      "tokens_per_second": 9.93989263922961,
+      "prompt_tokens": 642,
+      "completion_tokens": 20
+    },
+    {
+      "query": "Why are analysts saying SRPT is bearish?",
+      "answer": "According to Article 4, analysts are rating SRPT as a hold due to execution risk and friction in ELEVIDYS uptake, despite better profitability. (Article 4) However, the articles do not provide information on why there is execution risk or friction in ELEVIDYS uptake.",
+      "memory_after_mb": 1658.453125,
+      "elapsed_seconds": 3.9571164999999837,
+      "tokens_per_second": 17.689648510474807,
+      "prompt_tokens": 642,
+      "completion_tokens": 70
+    }
+  ],
+  "articles_fetched": 3,
+  "memory_after_model_load_mb": 1544.4375
+}
