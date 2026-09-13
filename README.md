@@ -34,6 +34,23 @@ showcase of actually understanding the RAG stack (embedding, retrieval,
 reranking, quantization) instead of just wrapping someone else's LLM
 API call.
 
+## Retrieval evaluation
+
+Built a hand labeled eval set to measure retrieval quality rather than
+assuming it works: one general query template ("What's the latest news
+on {ticker}?") applied across 8 major tickers, plus 2 cross ticker
+queries about analyst sentiment (10 query instances total which is a limitation of this 
+initial eval set, noted below).
+
+- Hybrid search (dense + sparse fusion) alone: precision@20 = 0.675
+- With cross-encoder reranking added: precision@20 = 0.655
+
+Reranking did not show a measurable improvement here, though given the
+small number of distinct query patterns, this result should be treated
+as preliminary rather than conclusive. A larger, more varied eval set
+(more query types, not just more tickers) would be needed to draw a
+confident general conclusion about reranking's value for this pipeline.
+
 ## Docker
 
 Docker is used to provide a reproducible environment for the project.

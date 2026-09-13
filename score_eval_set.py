@@ -62,7 +62,7 @@ def score_eval_set(articles: list[dict], eval_set: list[dict], use_reranking: bo
 if __name__ == "__main__":
     articles, eval_set = get_articles()
     print("=== Without reranking ===")
-    score_eval_set(articles, eval_set, use_reranking=False, top_k=5)
+    score_eval_set(articles, eval_set, use_reranking=False, top_k=20)
 
     print("\n=== With reranking ===")
-    score_eval_set(articles, eval_set, use_reranking=True, top_k=5)
+    score_eval_set(articles, eval_set, use_reranking=True, top_k=20)
