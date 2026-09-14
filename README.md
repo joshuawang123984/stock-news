@@ -7,22 +7,23 @@ tickers, store it so I can search it semantically, and eventually have a local L
 The generation component uses a local/open-source LLM so inference can be
 performed without relying on a paid hosted LLM API.
 
-## planned pipeline
+## pipeline
 
 1. **Ingestion** - pull news articles for a configured list of tickers
-   from a news API and sentiment endpoint (Marketaux)
+   from Marketaux
 2. **Embedding + storage** - embed articles with `sentence-transformers`,
    store them in Qdrant along with metadata (ticker, timestamp, source)
 3. **Hybrid search** - combine dense vector search with keyword/BM25
    search, since exact ticker/company name matches matter a lot here
    and pure semantic similarity can miss them
 4. **Reranking** - cross-encoder reranker on top of hybrid search
-   results before anything gets sent to the LLM
+   results before anything gets sent to the LLM (off by default since 
+   small increase in precision wasn't enough to justify using)
 5. **Local generation** - run a small open model locally via
    `llama.cpp` to summarize retrieved articles, with citations back to
    the source 
-6. **Quantization benchmarking** (maybe) - measure VRAM usage and
-   quality tradeoffs running the model at FP16 vs INT8 vs INT4
+6. **Quantization benchmarking** (maybe) - measured memory and speed tradeoffs
+   between Q4_K_M and Q8_0
 
 ## why local LLM 
 
@@ -104,18 +105,14 @@ separately measured against a hand labeled eval set
 
 ## running it
 
-You'll need Docker installed and running.
+You'll need Docker installed and running. Depending on the model you select (default is 4.4GB), 
+you will need to increase memory allocated to Docker (Settings → Resources → Memory)
 
-Start Qdrant:
-```
-docker run -p 6333:6333 -p 6334:6334 -v $(pwd)/qdrant_storage:/qdrant/storage qdrant/qdrant
-```
-
-In a separate terminal, activate the venv and run the connectivity check:
-```
-source .venv/bin/activate
-python main.py
-```
+1. Download the model: https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/tree/main
+2. Start everything via: docker-compose up --build
+3. Once you see "Uvicorn running on http://0.0.0.0:8000" in the logs,
+   visit `http://localhost:8000/docs` for interactive API documentation,
+   or query directly:
 
 ## setup from scratch
 
