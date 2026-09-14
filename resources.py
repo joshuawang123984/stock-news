@@ -5,6 +5,7 @@ from llama_cpp import Llama
 
 import platform
 import torch
+import os
 
 COLLECTION_NAME = "stock_news"
 MODEL_PATH_1 = "./models/mistral-7b-instruct-v0.2.Q4_K_M.gguf"
@@ -24,7 +25,8 @@ def get_model() -> SentenceTransformer:
 def get_client() -> QdrantClient:
     global _client
     if _client is None:
-        _client = QdrantClient(host="localhost", port=6333, check_compatibility=False)
+        host = os.getenv("QDRANT_HOST", "localhost")
+        _client = QdrantClient(host=host, port=6333, check_compatibility=False)
     return _client
 
 def get_reranker() -> CrossEncoder:
@@ -49,7 +51,8 @@ def get_llm() -> Llama:
     global _llm
     if _llm is None:
         _llm = Llama(
-            model_path=MODEL_PATH_2,
+            # using lighter model. the benefits of more precise model dont justify the size differential
+            model_path=MODEL_PATH_1,
             n_ctx=4096,
             n_gpu_layers=get_gpu_layers(),
         )

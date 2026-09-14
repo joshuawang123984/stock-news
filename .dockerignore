@@ -1,0 +1,7 @@
+.venv/
+qdrant_storage/
+models/
+.git/
+tests/
+*.json
+__pycache__/
