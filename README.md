@@ -97,9 +97,11 @@ separately measured against a hand labeled eval set
 - **sentence-transformers** - embeddings + cross-encoder reranking
 - **llama.cpp** local LLM inference
 - **rank_bm25** - keyword/sparse search half of the hybrid search step
+- **FastAPI + Uvicorn** - API layer
 - **Docker** - application containerization and local infrastructure
 - **AWS ECS/Fargate** - cloud container execution
 - **Amazon ECR** - Docker image registry
+- **Amazon EventBridge** - scheduled ingestion trigger
 - **Amazon S3** - persistent article storage
 - **Marketaux** - financial news API
 
