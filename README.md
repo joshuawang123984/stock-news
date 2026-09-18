@@ -2,7 +2,7 @@
 
 A local RAG (Retrieval-Augmented Generation) tool for tracking news on
 stocks I'm actually invested in. The idea is to pull in news for my
-tickers, store it so I can search it semantically, and eventually have a local LLM summarize new information on a stock instead of me manually scrolling through headlines every day.
+tickers, store it so I can search it semantically, and have a local LLM summarize new information on a stock instead of me manually scrolling through headlines every day.
 
 The generation component uses a local/open-source LLM so inference can be
 performed without relying on a paid hosted LLM API.
@@ -22,7 +22,7 @@ performed without relying on a paid hosted LLM API.
 5. **Local generation** - run a small open model locally via
    `llama.cpp` to summarize retrieved articles, with citations back to
    the source 
-6. **Quantization benchmarking** (maybe) - measured memory and speed tradeoffs
+6. **Quantization benchmarking** - measured memory and speed tradeoffs
    between Q4_K_M and Q8_0
 
 ## why local LLM 
@@ -67,11 +67,12 @@ image to be tested locally and deployed to AWS.
 
 The application is containerized with Docker and deployed to AWS.
 
-The Docker image is pushed to Amazon ECR and executed as a Fargate task.
+The Docker image is pushed to Amazon ECR and used by ECS/Fargate. 
+The API and Qdrant run as an ECS service, while ingestion runs as a scheduled Fargate task.
+Qdrant is used as the vector database, with its storage persisted on EFS.
 
-AWS is used for scheduled ingestion workloads, while S3 provides persistent
-storage for raw and processed article data. Qdrant is used for persistent
-vector storage.
+AWS is used for scheduled ingestion workloads, while EFS provides persistent storage for Qdrant data, 
+while S3 stores model artifacts.
 
 ## Monitoring and Benchmarking
 
@@ -102,7 +103,9 @@ separately measured against a hand labeled eval set
 - **AWS ECS/Fargate** - cloud container execution
 - **Amazon ECR** - Docker image registry
 - **Amazon EventBridge** - scheduled ingestion trigger
-- **Amazon S3** - persistent article storage
+- **Amazon S3** - model artifact storage
+- **Amazon EFS** - persistent Qdrant storage
+- **Amazon SSM PARAMETER STORE** - configurations and secret vals
 - **Marketaux** - financial news API
 
 ## running it
