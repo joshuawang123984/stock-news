@@ -1,10 +1,22 @@
 from ingestion import ingestion
 from embed_and_store import embed_and_store
+import boto3
 
-TICKERS = ["SRPT"]
+ssm = boto3.client("ssm", region_name="us-east-1")
+
+def get_tickers():
+    response = ssm.get_parameter(
+        Name="/stock-news/TICKERS"
+    )
+
+    return response["Parameter"]["Value"].split(",")
+
 
 def main():
-    articles, failed = ingestion(TICKERS)
+    tickers = get_tickers()
+    print(f"Ingesting tickers: {tickers}")
+
+    articles, failed = ingestion(tickers)
 
     print(f"Fetched {len(articles)} articles")
 
