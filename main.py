@@ -1,4 +1,3 @@
-from ingestion import ingestion
 from local_generation import answer_query
 from resources import get_llm
 from datetime import datetime
@@ -30,15 +29,12 @@ def run_benchmark():
         "queries": [],
     }
 
-    articles, failed = ingestion([TICKER])
-    results["articles_fetched"] = len(articles)
-
     get_llm() 
     results["memory_after_model_load_mb"] = get_memory_mb()
 
     for query in QUERIES:
         start = time.perf_counter()
-        answer, stats = answer_query(query, articles, ticker=TICKER)
+        answer, stats = answer_query(query, ticker=TICKER)
         elapsed = time.perf_counter() - start
 
         results["queries"].append({

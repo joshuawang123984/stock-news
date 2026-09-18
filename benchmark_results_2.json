@@ -1,36 +1,35 @@
 {
   "model_path": "./models/mistral-7b-instruct-v0.2.Q8_0.gguf",
-  "timestamp": "2026-09-13T14:42:49.337698",
-  "memory_at_start_mb": 445.5625,
+  "timestamp": "2026-09-18T07:13:56.664450",
+  "memory_at_start_mb": 440.3125,
   "queries": [
     {
       "query": "What's the latest news on SRPT?",
-      "answer": "According to Article 1, SRPT shares rebounded sharply after a prior day's decline. The GF Value\u2122 in the article suggests that SRPT is 79.1% undervalued. However, the article does not provide any information about the reason for the prior day's decline or any recent news affecting SRPT specifically. Therefore, the latest news on SRPT, based on the given articles, is that its shares rebounded after being perceived as undervalued according to the GF Value\u2122, but the reason for the prior day's decline is unknown. (Article 1)",
-      "memory_after_mb": 1619.875,
-      "elapsed_seconds": 12.760937708000029,
-      "tokens_per_second": 10.030610831973172,
-      "prompt_tokens": 644,
-      "completion_tokens": 128
+      "answer": "According to Article 1, SRPT shares rebounded after a prior day's decline, surging nearly 10%. However, the article also mentions profitability challenges for the company. In Article 2, Sarepta Therapeutics held an earnings call during which details about their Q2 2026 financials were discussed. Articles 3 and 5 report that the broader stock market is experiencing declines due to inflation concerns and rising crude oil prices, which may have impacted SRPT's stock performance. From Article 4, we learn that Sarepta Therapeutics presented at the Morgan Stanley 24th Annual Global Healthcare Conference. Unfortunately, the articles do not provide enough information to determine the specifics of the company's latest news or financial performance beyond the information already mentioned.",
+      "memory_after_mb": 4196.859375,
+      "elapsed_seconds": 12.673625625000113,
+      "tokens_per_second": 13.729299345624188,
+      "prompt_tokens": 651,
+      "completion_tokens": 174
     },
     {
       "query": "Why are analysts saying SRPT is bullish?",
-      "answer": "The articles do not provide enough information to determine why analysts are saying SRPT is bullish.",
-      "memory_after_mb": 1657.40625,
-      "elapsed_seconds": 2.0120941669999866,
-      "tokens_per_second": 9.93989263922961,
-      "prompt_tokens": 642,
-      "completion_tokens": 20
+      "answer": "According to Article 1, the GF Value\u2122 of SRPT suggests that the stock is 79.1% undervalued, despite profitability challenges. This information implies that analysts may view SRPT as bullish due to its perceived undervaluation based on the GF Value\u2122 metric. However, it's essential to note that the articles do not explicitly state that analysts are bullish on SRPT, but rather that the GF Value\u2122 indicates a potential bullish outlook.",
+      "memory_after_mb": 3980.515625,
+      "elapsed_seconds": 6.597925500000201,
+      "tokens_per_second": 15.61096741695505,
+      "prompt_tokens": 636,
+      "completion_tokens": 103
     },
     {
       "query": "Why are analysts saying SRPT is bearish?",
-      "answer": "According to Article 4, analysts are rating SRPT as a hold due to execution risk and friction in ELEVIDYS uptake, despite better profitability. (Article 4) However, the articles do not provide information on why there is execution risk or friction in ELEVIDYS uptake.",
-      "memory_after_mb": 1658.453125,
-      "elapsed_seconds": 3.9571164999999837,
-      "tokens_per_second": 17.689648510474807,
-      "prompt_tokens": 642,
-      "completion_tokens": 70
+      "answer": "According to Article 2, analysts are rating SRPT as a hold due to execution risk and friction in ELEVIDYS uptake, despite better profitability. (Article 2)",
+      "memory_after_mb": 3940.171875,
+      "elapsed_seconds": 2.0120061669999814,
+      "tokens_per_second": 21.371703877088763,
+      "prompt_tokens": 636,
+      "completion_tokens": 43
     }
   ],
-  "articles_fetched": 3,
-  "memory_after_model_load_mb": 1544.4375
+  "memory_after_model_load_mb": 4089.734375
 }

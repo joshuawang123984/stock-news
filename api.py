@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from ingestion import ingestion
 from local_generation import answer_query
 
 app = FastAPI()
@@ -12,7 +11,7 @@ def ask(ticker: str, query: str):
     Example: GET /ask?ticker=SRPT&query=What's the latest news on SRPT?
     """
     answer, stats = answer_query(query,  ticker=ticker)
-    
+
     return {
         "ticker": ticker,
         "query": query,
