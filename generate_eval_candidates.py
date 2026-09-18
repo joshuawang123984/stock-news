@@ -1,7 +1,5 @@
 import json
 from datetime import date
-from ingestion import ingestion
-from embed_and_store import embed_and_store
 from hybrid_search import hybrid_search
 
 OUTPUT_PATH = "eval_top_dawgs.json"
@@ -34,19 +32,9 @@ def build_query_list() -> list[tuple[str, str | None]]:
  
  
 def generate_candidates(top_k : int):
-    print(f"Fetching articles for {len(MY_TICKERS)} tickers...")
-    articles, failed = ingestion(MY_TICKERS)
-    if failed:
-        print(f"Warning: these tickers failed to fetch: {failed}")
-    print(f"Fetched {len(articles)} articles total.\n")
-
-    print("Embedding and storing articles in Qdrant...")
-    embed_and_store(articles)
-    print("Done.\n")
-  
     candidates = []
     for query, ticker in build_query_list():
-        results = hybrid_search(query, articles, ticker=ticker, top_k=top_k)
+        results = hybrid_search(query, ticker=ticker, top_k=top_k)
  
         entry = {
             "query": query,

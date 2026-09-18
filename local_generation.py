@@ -37,6 +37,6 @@ def generate_summary(query: str, articles: list[dict]) -> str:
 
     return response["choices"][0]["text"].strip(), stats
 
-def answer_query(query: str, articles: list[dict], ticker: str | None = None) -> str:
-    results = hybrid_search(query, articles, ticker=ticker, top_k=5, use_reranking=False) 
+def answer_query(query: str, ticker: str | None = None) -> str:
+    results = hybrid_search(query, ticker=ticker, top_k=5, use_reranking=False) 
     return generate_summary(query, results)

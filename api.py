@@ -11,15 +11,11 @@ def ask(ticker: str, query: str):
 
     Example: GET /ask?ticker=SRPT&query=What's the latest news on SRPT?
     """
-    articles, failed = ingestion([ticker])
-    if failed:
-        return {"error": f"Failed to fetch data for ticker: {ticker}"}
-
-    answer, stats = answer_query(query, articles, ticker=ticker)
+    answer, stats = answer_query(query,  ticker=ticker)
+    
     return {
         "ticker": ticker,
         "query": query,
         "answer": answer,
-        "articles_used": len(articles),
         "stats": stats,
     }

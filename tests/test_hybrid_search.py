@@ -3,7 +3,28 @@
 import pytest
 from unittest.mock import patch, MagicMock
 
-from hybrid_search import sparse_search, reciprocal_rank_fusion, dense_search
+from hybrid_search import sparse_search, reciprocal_rank_fusion, dense_search, get_articles_from_qdrant
+
+# --- geet articles from qdrant
+
+@patch("hybrid_search.get_client")
+def test_get_articles_from_qdrant_returns_payloads(mock_get_client):
+    fake_point = MagicMock()
+    fake_point.payload = {
+        "uuid": "abc",
+        "title": "test article",
+        "ticker": "NVDA",
+    }
+
+    mock_get_client.return_value.scroll.return_value = ([fake_point], None)
+
+    results = get_articles_from_qdrant(ticker="NVDA")
+
+    assert results == [{
+        "uuid": "abc",
+        "title": "test article",
+        "ticker": "NVDA",
+    }]
 
 # --- rrrf ---
 
